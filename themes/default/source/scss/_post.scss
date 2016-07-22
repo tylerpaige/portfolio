@@ -1,0 +1,22 @@
+@import 'colors';
+@import 'mixins';
+
+section.post {
+  @include gradient($mutedPink, 250px, rgb(30,30,30));
+}
+
+.post-tags {
+  margin-top: 1.5em;
+}
+.tag-list {
+  display: inline-block;
+  margin-left: 0.25em;
+  list-style: none;
+  width: auto;
+  li {
+    display: inline-block;
+    &+li {
+      margin-left: 0.5em;
+    }
+  }
+}

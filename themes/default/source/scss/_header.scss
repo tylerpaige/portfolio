@@ -1,0 +1,45 @@
+@import 'compass/css3/transform';
+@import 'colors';
+
+header {
+  position: relative;
+  padding-bottom: 65px;
+  z-index: 2;
+  overflow-x: hidden;
+  color: #1e1e1e;
+  &.past {
+    background: $mutedPink;
+  }
+  &:after{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: -45px;
+    left: -10%;
+    border-bottom: 2px solid #1e1e1e;
+
+    z-index: -1;
+    @include transform(rotate(-2deg));
+  }
+
+  h1 {
+    @include transform(rotate(-1deg));
+    padding-bottom: 0.5em;
+  }
+  h1 a {
+    color: #1e1e1e;
+  }
+  a {
+    color: $lightBeige;
+  }
+  .highlight {
+    color: $lightBeige;
+  }
+  ul {
+    display: inline-block;
+    width: 49%;
+    max-width: 200px;
+  }
+}

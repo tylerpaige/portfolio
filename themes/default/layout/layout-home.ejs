@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<!-- Use <%= page.title %> for dynamic title -->
+<title><%= config.title %></title>
+
+<%- css('css/base') %>
+
+</head>
+<body>
+  <% if (url_for(page.path) == '/index.html'){ %>
+    <%- partial('_partial/header', {splash: true}) %>
+  <% } else { %>
+    <%- partial('_partial/header', {splash: false}) %>
+  <% } %>
+  <%- body %>
+  <%- partial('_partial/footer', {}) %>
+</body>
+</html>

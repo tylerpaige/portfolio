@@ -1,0 +1,50 @@
+/* line 8, ../sass/frames.scss */
+.top,
+.bottom,
+.left,
+.right {
+  position: absolute;
+  background: black;
+  border-color: #b7a78f;
+  border-style: solid;
+}
+
+/* line 18, ../sass/frames.scss */
+.top,
+.bottom {
+  width: 100%;
+  height: 10px;
+  z-index: 101;
+}
+
+/* line 24, ../sass/frames.scss */
+.top {
+  top: 0;
+  border-bottom-width: 3px;
+}
+
+/* line 28, ../sass/frames.scss */
+.bottom {
+  bottom: 0;
+  border-top-width: 3px;
+}
+
+/* line 33, ../sass/frames.scss */
+.left,
+.right {
+  width: 10px;
+  height: 100%;
+  z-index: 100;
+}
+
+/* line 39, ../sass/frames.scss */
+.left {
+  left: 0;
+  border-right-width: 3px;
+}
+
+/* line 43, ../sass/frames.scss */
+.right {
+  right: 0;
+  border-left-width: 3px;
+}

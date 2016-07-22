@@ -1,0 +1,36 @@
+<article>
+  <div class="permalink">
+    <a href="<%- url_for(post.path) %>">¶</a>
+  </div>
+  <% if(post.images){ %>
+    <div class="post-imagegroup">
+      <% for(var i=0; i<post.images.length; i++) {%>
+        <% if(post.images[i] == 'br') { %>
+          <br/>
+        <% } else { %>
+          <img src="/<%= post.images[i] %>" />
+        <% } %>
+      <% } %>
+    </div>
+  <% } %>
+  <% if (!post.noTitle) { %>
+    <p>
+      <% if(post.link) { %>
+        <a href="<%= post.link %>"><b><%= post.title %></b></a>
+      <% } else { %>
+        <b><%= post.title %></b>
+      <% } %>
+    </p>
+  <% } %>
+  <% if (post.content) { %>
+    <%- post.content %>
+  <% } %>
+  <% if (post.tags && post.tags.length > 0) { %>
+    <div class="post-tags">
+      Tagged as:
+      <%- list_tags(post.tags, {
+        show_count:false
+      }) %>
+    </div>
+  <% } %>
+</article>

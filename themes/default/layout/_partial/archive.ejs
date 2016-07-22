@@ -1,0 +1,19 @@
+<% if (splash){ %>
+  <section class="now">
+    <h1>Upcoming &amp; On-going</h1>
+    <% site.categories.findOne({name: 'present'}).posts.sort('date', -1).each(function(post){ %>
+      <%- partial('article', {post: post}) %>
+    <% }) %>
+  </section>
+<% } %>
+<section class="past">
+  <h1>Past</h1>
+  <% page.posts.each(function(post) { %>
+
+    <% if(post.categories.data.length === 0 || post.categories.data[0].name == 'past') { %>
+      <%- partial('article', {post: post, index: true}) %>
+    <% } %>
+  <% }) %>
+</section>
+
+<%- partial('pagination') %>

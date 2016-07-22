@@ -1,0 +1,1 @@
+- Redesign pagination so it accounts for multiple lines of text on smaller viewports

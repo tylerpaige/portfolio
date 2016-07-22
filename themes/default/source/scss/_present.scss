@@ -1,0 +1,10 @@
+@import 'colors';
+@import 'mixins';
+
+.now {
+  @include gradient($blue, 250px, rgb(30,30,30));
+  h1,
+  h3 {
+    color: $lightBeige;
+  }
+}

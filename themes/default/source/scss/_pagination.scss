@@ -1,0 +1,27 @@
+@import 'mixins';
+@import 'colors';
+@import 'animations';
+@import 'compass/css3/transform';
+
+nav#page-nav {
+
+  padding: 140px 15px 30px 30px;
+  font-size: 5.0rem;
+  color: $beige;
+  @include gradient(#1e1e1e, 100px, $blue);
+
+  &>.wrapper{
+    width: 100%;
+    max-width: 612px;
+    @include transform(rotate(-3deg));
+    &>*+* {
+      margin-left: 0.25em;
+    }
+  }
+
+  a,
+  a:visited {
+    color: #1e1e1e;
+  }
+
+}

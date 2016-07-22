@@ -1,0 +1,7 @@
+layout: layout-home
+----
+<% if (url_for(page.path) == '/index.html'){ %>
+  <%- partial('_partial/archive', {splash: true, index: true}) %>
+<% } else { %>
+  <%- partial('_partial/archive', {splash: false, index: true}) %>
+<% } %>
