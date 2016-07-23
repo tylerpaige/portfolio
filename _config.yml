@@ -8,7 +8,7 @@ subtitle: all my professional and purse-onal things in one place
 description: portfolio website for artist, designer, and developer
 author: Tyler Paige
 language: English
-timezone: UTC-4
+timezone: America/New_York
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -67,5 +67,3 @@ theme: default
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type:
