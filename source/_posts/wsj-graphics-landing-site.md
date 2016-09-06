@@ -14,4 +14,4 @@ tags:
 ---
 The Wall Street Journal's Graphics team needed a place to put their work on display, in a way that allowed them to show the most recent projects as well as significant projects that might be less recent.
 
-With help from [Jessia Ma](jessiama.com) and [Dov Friedman](http://www.dovfriedman.com/), we built a little homepage!
+With help from [Jessia Ma](http://jessiama.com) and [Dov Friedman](http://www.dovfriedman.com/), we built a little homepage!
