@@ -20,3 +20,16 @@
     background: $endColor;
     @include background-image(linear-gradient($startColor, $endColor $point));
 }
+
+/* in use:
+go from smallest to largest to ensure larger viewport styles
+are not overwritten by smaller viewport styles.
+*/
+@mixin breakpoint($point) {
+  @if $point == big {
+    @media (min-width: 70em) { @content ; }
+ }
+ @else if $point == small {
+    @media (max-width: 37.5em)  { @content ; }
+ }
+}

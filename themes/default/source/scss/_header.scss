@@ -6,7 +6,7 @@ header {
   padding-bottom: 65px;
   z-index: 2;
   overflow-x: hidden;
-  color: #1e1e1e;
+  color: $lightBeige;
   &.past {
     background: $mutedPink;
   }
@@ -27,6 +27,11 @@ header {
   h1 {
     @include transform(rotate(-1deg));
     padding-bottom: 0.5em;
+
+    @include breakpoint(small) {
+      font-size: 5.5rem;
+      padding-bottom: 10px;
+    }
   }
   h1 a {
     color: #1e1e1e;
@@ -34,12 +39,20 @@ header {
   a {
     color: $lightBeige;
   }
-  .highlight {
-    color: $lightBeige;
-  }
   ul {
     display: inline-block;
     width: 49%;
     max-width: 200px;
+  }
+  li {
+    list-style: none;
+    padding: 0;
+    text-indent: 0;
+
+    &:before {
+      content: '•';
+      color: #1e1e1e;
+      padding-right: 0.5em;
+    }
   }
 }

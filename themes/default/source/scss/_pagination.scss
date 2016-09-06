@@ -14,8 +14,34 @@ nav#page-nav {
     width: 100%;
     max-width: 612px;
     @include transform(rotate(-3deg));
-    &>*+* {
-      margin-left: 0.25em;
+
+    @include breakpoint(big) {
+      &>*+* {
+        margin-left: 0.25em;
+      }
+    }
+
+    @include breakpoint(small) {
+      width: 90%;
+      margin: auto;
+
+      font-size: 4.0rem;
+      line-height: 4.25rem;
+
+      a,
+      span {
+        display: block;
+      }
+
+      .extend.prev {
+        text-align: left;
+      }
+      .extend.next {
+        text-align: right;
+      }
+      .page-number {
+        text-align: center;
+      }
     }
   }
 
