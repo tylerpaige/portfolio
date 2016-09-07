@@ -7,6 +7,6 @@ categories:
 images:
 - images/cloudhunters-prop-design.jpg
 tags:
-- design
+- illustration
 ---
 Prop design for **CLOUD HUNTERS**, a play coming to Metaverse Theater.

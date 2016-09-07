@@ -3,7 +3,7 @@ title: 266w25st Exhibition Sites (2014 – present)
 date: 2016-02-28 12:00:00
 link: http://266w25st.com
 categories:
-- present
+- past
 images:
 - images/266w25st/department-of-embodied-fantasy.gif
 - images/266w25st/icroed.gif
