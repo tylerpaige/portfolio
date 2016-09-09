@@ -36,6 +36,20 @@ header {
   h1 a {
     color: #1e1e1e;
   }
+  h2 {
+    font-size: 36px;
+    max-width: 612px;
+    line-height: 45px;
+    font-weight: 300;
+    font-style: normal;
+    font-family: 'JunicodeCondensed', serif;
+
+    @include breakpoint(small) {
+      font-size: 2.6rem;
+      line-height: 3.75rem;
+    }
+
+  }
   a {
     color: $lightBeige;
   }
