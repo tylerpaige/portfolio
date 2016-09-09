@@ -3,7 +3,11 @@
     <a href="<%- url_for(post.path) %>">¶</a>
   </div>
   <% if(post.images){ %>
-    <div class="post-imagegroup">
+    <% if (post.bigImages) { %>
+      <div class="post-imageGroup-big">
+    <% } else { %>
+      <div class="post-imageGroup">
+    <% } %>
       <% for(var i=0; i<post.images.length; i++) {%>
         <% if(post.images[i] == 'br') { %>
           <br/>

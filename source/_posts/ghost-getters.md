@@ -16,3 +16,5 @@ tags:
 How do you make a fake TV show effectively spooky?
 
 _With too many effects._
+
+![Proof that I deserve an IMDB profile](./images/ghost-getters-credit.png)
