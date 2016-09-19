@@ -1,0 +1,52 @@
+section {
+  position: relative;
+
+  .section-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    z-index: 200;
+
+    @include background-image(linear-gradient($mutedPink, transparent));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    @include transition(transform .3s linear);
+    @include transform-origin(top);
+    transform-origin: top;
+
+    pointer-events: none;
+
+    &.fixto-fixed {
+      @include transform(scaleY(0.25));
+    }
+  }
+
+  .section-content  {
+    font-size: 21px;
+    line-height: 31px;
+
+    hr {
+      margin: 40px 0;
+      border-color: #504b43;
+    }
+    p,
+    blockquote,
+    ul {
+      width: 100%;
+      max-width: 612px;
+    }
+
+    li + li {
+      margin-top: 0.5em;
+    }
+  }
+
+  h1,
+  h3 {
+    color: $lightBeige;
+    position: relative;
+    z-index: 300;
+  }
+}

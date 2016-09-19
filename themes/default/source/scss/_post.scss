@@ -1,8 +1,9 @@
 @import 'colors';
 @import 'mixins';
 
-section.post {
-  @include gradient($mutedPink, 250px, rgb(30,30,30));
+article {
+  position: relative;
+  z-index: 100;
 }
 
 .post-tags {

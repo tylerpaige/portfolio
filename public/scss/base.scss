@@ -6,6 +6,7 @@
 @import "_fonts";
 @import "_colors";
 @import "_mixins";
+@import "_typestyles";
 
 @import "_videoFillers";
 
@@ -40,28 +41,7 @@ a {
   display: block;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-    font-family: 'JunicodeBoldCondensed', serif;
-    margin: 5px 0;
-}
-h1{
-    font-size: 7.0rem;
-    font-weight: 900;
-}
-h2{
-    font-size:3.5rem;
-    font-weight:700;
-    font-style:italic;
-}
-h3{
-  font-size: 2.0rem;
-  font-style: italic;
-}
+
 ul{
     list-style: disc;
 }
@@ -133,6 +113,7 @@ article{
 }
 
 @import '_header';
+@import '_section';
 @import '_present';
 @import '_past';
 @import '_post';

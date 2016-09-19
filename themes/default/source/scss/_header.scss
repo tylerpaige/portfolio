@@ -42,7 +42,6 @@ header {
     line-height: 45px;
     font-weight: 300;
     font-style: normal;
-    font-family: 'JunicodeCondensed', serif;
 
     @include breakpoint(small) {
       font-size: 2.6rem;
@@ -50,11 +49,24 @@ header {
     }
 
   }
+
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 7px;
+  }
+
+  h4 {
+    margin-bottom: 13px;
+  }
   a {
     color: $lightBeige;
   }
+  a.inlineLink {
+    border-bottom: 6px solid #1e1e1e;
+  }
   ul {
     display: inline-block;
+    vertical-align: top;
     width: 49%;
     max-width: 200px;
   }
@@ -67,6 +79,12 @@ header {
       content: '•';
       color: #1e1e1e;
       padding-right: 0.5em;
+    }
+  }
+
+  li.noBullet {
+    &:before {
+      content : '';
     }
   }
 }

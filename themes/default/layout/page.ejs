@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="description" content="Portfolio website for artist illustrator web designer developer.">
+<meta name="keywords" content="artist,designer,illustrator,front-end,web,developer">
+<!-- Use <%= page.title %> for dynamic title -->
+<title><%= config.title %></title>
+
+<%- js('js/jquery-3.1.0.min.js') %>
+<%- js('js/fixto.js') %>
+<%- js('js/script.js') %>
+<script src="https://use.typekit.net/ajy0ybc.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<%- css('css/base') %>
+
+</head>
+<body>
+  <% if (url_for(page.path) == '/index.html'){ %>
+    <%- partial('_partial/header', {splash: true}) %>
+  <% } else { %>
+    <%- partial('_partial/header', {splash: false}) %>
+  <% } %>
+  <section class="page">
+    <h3><%= page.title %></h3>
+    <div class="section-gradient"></div>
+    </div>
+    <div class="section-content">
+      <%- page.content %>
+    </div>
+  </section>
+  <%- partial('_partial/footer', {}) %>
+</body>
+</html>

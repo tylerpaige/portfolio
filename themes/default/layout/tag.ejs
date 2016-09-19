@@ -1,7 +1,7 @@
 layout: layout-default
 ----
 <section class="tag">
-  <h1>Tagged as: <%- page.tag %></h1>
+  <h3>Tagged as: <%- page.tag %></h3>
   <% page.posts.each(function(post) { %>
     <%- partial('_partial/article', {post: post}) %>
   <% }) %>

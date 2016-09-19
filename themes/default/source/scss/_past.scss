@@ -2,9 +2,7 @@
 @import 'mixins';
 
 .past {
-  @include gradient($mutedPink, 250px, rgb(30,30,30));
-  h1,
-  h3 {
-    color: $lightBeige;
+
+  .section-gradient {
   }
 }

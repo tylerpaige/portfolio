@@ -10,3 +10,4 @@ tags:
 - work
 - illustration
 ---
+Illustration assisting [Jessica Kuronen](http://www.jesskuronen.com/).
