@@ -21,6 +21,12 @@ article {
     }
   }
 }
+.tag-list-item {
+  &:before {
+    content : initial;
+    padding-right: 0;
+  }
+}
 
 .post-imageGroup-big {
   //Support big images

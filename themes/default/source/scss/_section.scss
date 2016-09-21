@@ -24,7 +24,7 @@ section {
   }
 
   .section-content  {
-    font-size: 21px;
+    font-size: 23px;
     line-height: 31px;
 
     hr {
@@ -37,6 +37,9 @@ section {
       width: 100%;
       max-width: 612px;
     }
+    blockquote p {
+      width: calc(100% - 1em);
+    }
 
     li + li {
       margin-top: 0.5em;
@@ -48,5 +51,49 @@ section {
     color: $lightBeige;
     position: relative;
     z-index: 300;
+  }
+}
+
+
+.split-container {
+  width: 100%;
+  max-width: 612px;
+  border: 1px solid #504b43;
+  box-sizing: border-box;
+  padding: 0.5em 0.5em 1em;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  margin-top: 1em;
+}
+
+.split-left,
+.split-right {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+.split-left {
+  padding-right: 1em;
+}
+.split-right {
+  border-left: 1px solid #504b43;
+  padding-left: 1em;
+}
+
+@media screen and (max-width: 612px) {
+  .split-left,
+  .split-right {
+    display: block;
+    width: 100%;
+  }
+  .split-left {
+    padding-right: 0;
+    padding-bottom: 1em;
+  }
+  .split-right {
+    padding-left: 0;
+    padding-top: 1em;
+    border-left: 0;
+    border-top: 1px solid #504b43;
   }
 }

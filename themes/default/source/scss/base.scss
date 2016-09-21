@@ -44,19 +44,33 @@ a {
 
 ul{
     list-style: disc;
+    margin: 1em 0;
 }
 li{
     line-height:2.4rem;
+    list-style: none;
+    padding: 0;
+
+    &:before {
+      content: '•';
+      padding-right: 0.5em;
+      color: $lightBeige;
+    }
 }
 blockquote{
   border-left: 1px solid blue;
   padding-left: 1em;
+
+  p {
+    width: calc(100% - 1em);
+  }
 }
 p+p,
 p+blockquote,
 blockquote+p{
     margin-top:0.75em;
 }
+
 
 
 

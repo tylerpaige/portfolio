@@ -10,7 +10,7 @@ date: 2016-09-19 15:20:34
 
 ---
 
-I am a recent graduate from The Cooper Union School of Art in New York. Currently, I am a graphics editor at the Wall Street Journal.
+I am a recent graduate from The Cooper Union School of Art in New York. Currently, I am a graphics editor at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
 
 ---
 
@@ -35,16 +35,13 @@ At the same time, I was studying at Cooper Union while the administration was de
 
 After [burning out](http://blog.tylerpaige.com/post/49980089907), I went to the Universität der Kunste Berlin and studied under Hito Steyerl.
 
-I finished my education at Cooper Union with an exhibition that explored time, labor, and Times Square. The show was called [Unlimited Liability](http://cooper.edu/events-and-exhibitions/exhibitions/tyler-paige-unlimited-liability-study-shapeshifter)
+I finished my education at Cooper Union with an exhibition that explored time, labor, and Times Square. The show was called [Unlimited Liability](http://cooper.edu/events-and-exhibitions/exhibitions/tyler-paige-unlimited-liability-study-shapeshifter). This is the text I put on my invitations:
 
 > If you’re here because you are questioning your right to expect something of the workplace; if you’re here because your expectations of stability feel ungrounded; if you question what essential quality about yourself is valuable, then you’re in the right place. Because think about it: is this the new you?
 
 ---
 
-### I am also very inspired by my peers.
-I am lucky enough to be surrounded by a group of excellent artists, designers, writers, and generous people.
-
-Here is a list of some of them:
+I am lucky enough to be surrounded by a group of excellent artists, designers, writers, and generous people. Here is a list of some of them:
 
 - Asher Mones
 - [Emil Gombos](http://charles-oleary.com/)
