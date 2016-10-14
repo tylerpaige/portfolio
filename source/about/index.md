@@ -14,20 +14,20 @@ I am a recent graduate from The Cooper Union School of Art in New York. Currentl
 
 ---
 
-Previously, I was the co-director of an independent art space called 266 W 25 St, which was the address. The space officially billed itself as:
+Previously, I was the co-director of an independent art space called [266 W 25 St](http://266w25st.com/), which was the address. The space officially billed itself as:
 
 > an open, artist-run space to be activated by a series of short-term projects. [We opt to] allow participating artists to craft not only their projects but also the institutions that will surround their work.
 
 266 W 25 St ran for two years, while we created websites and writings to support these fictional institutions.
 
-Among the institutions was:
+Among the institutions were:
 
 - A publishing house
 - A convention to redraft the dictionary
 - A poets labor union
 - A screening room
 - The X-Files, as a dance center
-- and more
+- and [more](http://266w25st.com/#archive)
 
 ---
 
