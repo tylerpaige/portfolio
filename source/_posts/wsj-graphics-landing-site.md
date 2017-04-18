@@ -3,7 +3,7 @@ title: WSJ Graphics Homepage
 date: 2016-07-06 12:00:00
 link: http://graphics.wsj.com/
 categories:
-- present
+- past
 images:
 - images/wsj/landing-page-1.png
 - images/wsj/landing-page-2.png
