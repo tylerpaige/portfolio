@@ -10,7 +10,9 @@ date: 2016-09-19 15:20:34
 
 ---
 
-I am a recent graduate from The Cooper Union School of Art in New York. Currently, I am a graphics editor at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
+I am a recent graduate from The Cooper Union School of Art in New York. Currently, I am a graphics developer at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
+
+My work at the Journal falls mostly under the very broad category of "digital editorial design".
 
 ---
 

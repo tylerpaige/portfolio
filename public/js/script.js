@@ -1,26 +1,36 @@
 var app = {};
 
 //ELEMENTS To TRACK
-
 app.init = function() {
-  console.log('init');
-  app.captureElements();
-  app.setupHeaders();
+  var els = app.captureElements();
+  console.log('els', els);
+  var headers = els.headers;
+  var gradients = els.gradients;
+  app.setupStick(headers, gradients);
 }
 
 app.captureElements = function() {
-  app.headers = document.querySelectorAll('section h1');
+  var headers = document.querySelectorAll('.js-sticky-hed');
+  var gradients = document.querySelectorAll('.js-sticky-gradient');
+
+  return {
+    headers : headers,
+    gradients : gradients
+  };
 }
 
-app.setupHeaders = function() {
-  // debugger;
-  var gradients = document.querySelectorAll('.section-gradient');
-  for (var i = 0, ct = gradients.length; i < ct; i++) {
+app.setupStick = function(headers, gradients) {
+
+  for (var i = 0, ct = headers.length; i < ct; i++) {
+    var header = headers[i];
     var gradient = gradients[i];
-    var section = gradient.parentNode;
-    var sticky = fixto.fixTo(gradient, section);
+    var section = header.parentNode;
+    var stickyOptions = {
+      useNativeSticky : false
+    };
+    var stickyHed = fixto.fixTo(header, section, stickyOptions);
+    var stickyGrad = fixto.fixTo(gradient, section, stickyOptions);
   }
 };
 
-console.log('lol');
 document.addEventListener('DOMContentLoaded', app.init);
