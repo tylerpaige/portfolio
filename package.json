@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.1"
+    "version": "3.4.0"
+  },
+  "scripts" : {
+    "build" : "hexo generate",
+    "dev" : "hexo serve",
+    "deploy" : "git push dokku master"
   },
   "dependencies": {
-    "hexo": "^3.3.1",
+    "hexo": "^3.4.0",
     "hexo-deployer-heroku": "^0.1.1",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
