@@ -4,14 +4,9 @@ noTitle: true
 date: 2016-12-31 12:00:00
 images:
 - images/wsj/year-in-review-2016-1.jpg
-- br
 - images/wsj/year-in-review-2016-2.jpg
-- br
-- br
 - images/wsj/year-ahead-2017-1.jpg
-- br
 - images/wsj/year-ahead-2017-2.jpg
-- br
 - images/wsj/year-ahead-2017-3.jpg
 tags:
 - web

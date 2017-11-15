@@ -2,10 +2,6 @@
 
 @media (min-width: 1289px) {
   article {
-    img:nth-child(even),
-    .imgLink:nth-child(even) {
-      margin-left: 5px;
-    }
     .embeddedVideo-container:nth-child(even) {
       margin-left: 10px;
     }

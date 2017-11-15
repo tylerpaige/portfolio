@@ -27,6 +27,14 @@ article {
     padding-right: 0;
   }
 }
+.post-imageGroup,
+.post-imageGroup-big {
+  font-size: 0;
+  line-height: 0;
+}
+.post-imageGroup img {
+  vertical-align: top;
+}
 
 .post-imageGroup-big {
   //Support big images
