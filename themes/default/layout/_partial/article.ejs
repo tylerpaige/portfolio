@@ -17,6 +17,17 @@
       <% } %>
     </div>
   <% } %>
+  <% if(post.media){ %>
+    <div class="post-imageGroup">
+      <% for(var i=0; i<post.media.length; i++) {%>
+        <% if(post.media[i].type == 'img' || post.media[i].type == 'image') { %>
+          <img src="/<%= post.media[i].url %>" />
+        <% } else if(post.media[i].type == 'video') { %>
+          <video src="/<%= post.media[i].url %>" type="video/mp4" playsinline autoplay loop muted preload="auto"></video>
+        <% } %>
+      <% } %>
+    </div>
+  <% } %>
   <% if (!post.noTitle) { %>
     <p>
       <% if(post.link) { %>

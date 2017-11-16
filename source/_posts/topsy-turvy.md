@@ -2,8 +2,8 @@
 title: What a Topsy-Turvy World!
 noTitle: true
 date: 2017-02-28 12:00:00
-images:
-- images/topsy-turvy.gif
+media:
+- {url: images/topsy-turvy.mp4, type: video}
 tags:
 - design
 - web

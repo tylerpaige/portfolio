@@ -17,4 +17,4 @@ bigImages: true
 ---
 [**Year Ahead**](http://www.wsj.com/graphics/year-ahead-2017/) / [**Year in Review**](http://graphics.wsj.com/year-in-review-2016/)
 
-I was the last to elect my vacation days, so I was working late December.
+I was the last one to choose my vacation days, so I was working late December.

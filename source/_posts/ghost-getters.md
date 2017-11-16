@@ -3,7 +3,7 @@ title: Ghost Getters title treatments
 noTitle: true
 date: 2016-08-12 12:00:00
 categories:
-- present
+- past
 tags:
 - video
 - animation

@@ -3,7 +3,7 @@ title: Cloud Hunters
 date: 2016-02-25 12:00:00
 noTitle: true
 categories:
-- present
+- past
 images:
 - images/cloudhunters-prop-design.jpg
 tags:

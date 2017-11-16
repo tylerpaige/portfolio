@@ -8,6 +8,6 @@ images:
 tags:
 - web
 categories:
-- past
+- present
 ---
 [tyler.click](http://tyler.click) is a platform for me to release low-pressure, low-anxiety projects. And its backend is [up for grabs!](https://github.com/tylerpaige/tyler.click)
