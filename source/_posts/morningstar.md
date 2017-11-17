@@ -3,8 +3,8 @@ title: The Morningstar Mirage
 date: 2017-10-25 12:00:00
 link: https://www.wsj.com/articles/the-morningstar-mirage-1508946687
 media:
-- {url: images/wsj/morningstar-bigtop.mp4, type: video}
-- {url: images/wsj/morningstar-ratings-over-time.mp4, type: video}
+- {url: images/wsj/morningstar-bigtop.mp4, type: video, poster: images/wsj/morningstar-bigtop-poster.jpg}
+- {url: images/wsj/morningstar-ratings-over-time.mp4, type: video, poster: images/wsj/morningstar-ratings-over-time-poster.jpg}
 - {url: images/wsj/morningstar-joe-mansueto.jpg, type: img}
 - {url: images/wsj/morningstar-donald-demuth.jpg, type: img}
 - {url: images/wsj/morningstar-sketch-stars-are-blind.jpg, type: img}

@@ -3,7 +3,7 @@ title: The Quants
 link: https://www.wsj.com/articles/the-quants-run-wall-street-now-1495389108?mg=prod/accounts-wsj
 date: 2017-05-21 12:00:00
 media:
-- {url: images/wsj/quants-bigtop.mp4, type: video}
+- {url: images/wsj/quants-bigtop.mp4, type: video, poster: images/wsj/quants-bigtop-poster.jpg}
 - {url: images/wsj/quants-pointer.png, type: img}
 tags:
 - design
