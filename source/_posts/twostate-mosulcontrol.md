@@ -10,7 +10,7 @@ categories:
 - past
 ---
 
-WSJ cartographer Renee Rigdon and I were feeling that AI2HTML wasn't conducive for scrolly-telling, so I built a pared-down version that uses SVGs instead. Now we have a little utility that outputs SVGs with layers so that different states of a composition can be toggled via scroll events. 
+WSJ cartographer Renee Rigdon and I were feeling that AI2HTML wasn't conducive for scrolly-telling, so I built a pared-down version that uses SVGs instead. Now we have a little utility that lets us SVGs (for their layers) without having the text scale with the rest of the composition. 
 
 One successful usecase of th technogloy has been showing geo-political changes over time in a fixed area. You can see some demonstrations of this setup in a couple of projects:
 
