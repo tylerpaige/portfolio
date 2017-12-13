@@ -9,7 +9,7 @@ images:
 tags:
 - work
 - design
-- charting
+- graphics
 - web
 ---
 > Investigators say at least $3.5 billion was misappropriated from 1MDB. Here’s how they believe $1 billion ended up in the bank accounts of Malaysian Prime Minister Najib Razak.

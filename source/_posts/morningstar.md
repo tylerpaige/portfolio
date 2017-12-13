@@ -15,6 +15,7 @@ tags:
 - design
 - web
 - animation
+- graphics
 categories:
 - present
 ---

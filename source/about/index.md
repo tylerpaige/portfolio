@@ -46,8 +46,9 @@ I finished my education at Cooper Union with an exhibition that explored time, l
 I am lucky enough to be surrounded by a group of excellent artists, designers, writers, and generous people. Here is a list of some of them:
 
 - Asher Mones
-- [Emil Gombos](http://charles-oleary.com/)
-- Eduardo Alfonso (I'm making his website soon!)
+- [Emil Gombos](http://www.emilgombos.com/)
+- [Dominique Fenichell](http://cargocollective.com/dominiquef)
+- [Kate Lipton](http://www.katelipton.net/)
 - [Rachel Mendelsohn](http://rachelmendelsohn.com/)
 - [Greg Skiano](http://skiano.com/)
 - [Joe Kendall](http://1800joe.com/)
