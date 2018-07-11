@@ -12,7 +12,7 @@ tags:
 - web
 - work
 categories:
-- present
+- past
 bigImages: true
 ---
 [**Year Ahead**](http://www.wsj.com/graphics/year-ahead-2017/) / [**Year in Review**](http://graphics.wsj.com/year-in-review-2016/)

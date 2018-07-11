@@ -10,9 +10,11 @@ date: 2016-09-19 15:20:34
 
 ---
 
-I am a recent graduate from The Cooper Union School of Art in New York. Currently, I am a graphics developer at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
+I am an artist who works in sound, video, and interfaces; and I live in New York. Currently, I am a graphics developer at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
 
 My work at the Journal falls mostly under the very broad category of "digital editorial design".
+
+Right now I am interested in: <div class="split-container">How to dissect a photo and power a narrative</div>
 
 ---
 
@@ -45,16 +47,20 @@ I finished my education at Cooper Union with an exhibition that explored time, l
 
 I am lucky enough to be surrounded by a group of excellent artists, designers, writers, and generous people. Here is a list of some of them:
 
-- Asher Mones
 - [Emil Gombos](http://www.emilgombos.com/)
+- [Jessica Kuronen](http://www.jesskuronen.com/)
+- Asher Mones
+- Eduardo Alfonso
 - [Dominique Fenichell](http://cargocollective.com/dominiquef)
-- [Kate Lipton](http://www.katelipton.net/)
+- [Stephanie Stamm](http://stephaniestamm.com/)
+- [Jieqian Zhang](http://jieqianzhang.github.io/)
+- [Laura Holder](http://lauratitian.com/)
 - [Rachel Mendelsohn](http://rachelmendelsohn.com/)
 - [Greg Skiano](http://skiano.com/)
 - [Joe Kendall](http://1800joe.com/)
 - [Erin Sparling](http://www.erinsparling.com/.plan)
 - [Mike Essl](http://mike.essl.com/)
+- [Kate Lipton](http://www.katelipton.net/)
 - [Jessia Ma](http://jessiama.com/)
-- [Jessica Kuronen](http://www.jesskuronen.com/)
 - [Charles O'leary](http://charles-oleary.com/)
 - [Saar Shemesh](http://saarshemesh.com/)

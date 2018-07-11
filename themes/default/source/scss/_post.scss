@@ -28,7 +28,8 @@ article {
   }
 }
 .post-imageGroup,
-.post-imageGroup-big {
+.post-imageGroup-big,
+.post-imageGroup-tall {
   font-size: 0;
   line-height: 0;
 }
@@ -43,6 +44,15 @@ article {
   }
 }
 
+.post-imageGroup-tall {
+  //Support tall images
+  img {
+    max-width: 360px;
+  }
+}
+
+.post-imageGroup-tall > img,
+.post-imageGroup-tall > video,
 .post-imageGroup-big > img,
 .post-imageGroup-big > video,
 .post-imageGroup > img, 

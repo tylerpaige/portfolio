@@ -5,6 +5,8 @@
   <% if(post.images){ %>
     <% if (post.bigImages) { %>
       <div class="post-imageGroup-big">
+    <% } else if (post.tallImages) { %>
+      <div class="post-imageGroup-tall">
     <% } else { %>
       <div class="post-imageGroup">
     <% } %>
