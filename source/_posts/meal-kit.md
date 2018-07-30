@@ -7,6 +7,7 @@ media:
 - {type: img, url: images/wsj/mealkit-3.jpg}
 - {type: img, url: images/wsj/mealkit-4.jpg}
 - {type: img, url: images/wsj/mealkit-5.jpg}
+- {type: img, url: images/wsj/mealkit-6.jpg}
 link: https://www.wsj.com/graphics/run-your-own-meal-kit-company/
 tags:
 - illustration
