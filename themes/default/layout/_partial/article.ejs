@@ -2,41 +2,42 @@
   <div class="permalink">
     <a href="<%- url_for(post.path) %>">¶</a>
   </div>
-  <% if(post.images){ %>
-    <% if (post.bigImages) { %>
-      <div class="post-imageGroup-big">
-    <% } else if (post.tallImages) { %>
-      <div class="post-imageGroup-tall">
-    <% } else { %>
-      <div class="post-imageGroup">
-    <% } %>
-      <% for(var i=0; i<post.images.length; i++) {%>
-        <% if(post.images[i] == 'br') { %>
-          <br/>
-        <% } else { %>
-          <img src="/<%= post.images[i] %>" />
-        <% } %>
-      <% } %>
-    </div>
-  <% } %>
-  <% if(post.media){ %>
+  <% if(post.media) { %>
     <div class="post-imageGroup">
-      <% for(var i=0; i<post.media.length; i++) {%>
-        <% if(post.media[i].type == 'img' || post.media[i].type == 'image') { %>
-          <img src="/<%= post.media[i].url %>" />
-        <% } else if(post.media[i].type == 'video') { %>
-          <video playsinline autoplay loop muted preload="auto" <% if(post.media[i].poster) { %>poster="/<%= post.media[i].poster %>"<% } %>>
-            <% if (post.media[i].sources) { %>
-              <% for(var v=0; v<post.media[i].sources.length; v++) {%>
-                <source src="/<%= post.media[i].sources[v].url %>"  type="<%= post.media[i].sources[v].type %>" />
-              <% } %>
-            <% } else { %>
-              <source src="/<%= post.media[i].url %>"  type="video/mp4" />
-            <% } %>
-
+      <% 
+      post.media.forEach(function(media) {
+        var type = media.type;   
+        if (type == 'img' || type == 'image') {
+          var link = media.link ? media.link : media.url;
+          var layoutClass;
+          if (media.layout === 'big') {
+            layoutClass = 'post__media--big';
+          } else if (media.layout === 'tall') {
+            layoutClass = 'post__media--tall';
+          } else {
+            layoutClass = 'post__media';
+          }
+      %>
+          <a href="<%= link %>">
+            <img class="<%= layoutClass %>" src="/<%= media.url %>" />
+          </a>
+      <%
+        } else if (type == 'video') {
+          var posterAttr = media.poster ? 'poster="/' + media.poster + '"' : '';
+      %> 
+          <video class="<% layoutClass %>" playsinline autoplay loop muted preload="auto" <%= posterAttr %>>
+            <source type="video/mp4" src="<%= media.url %>" />
           </video>
-        <% } %>
-      <% } %>
+      <%
+        } else if (type == 'br') {
+      %>
+          <br />
+      <%
+        } 
+      %>
+      <%
+      });
+      %>
     </div>
   <% } %>
   <% if (!post.noTitle) { %>

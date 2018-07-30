@@ -2,10 +2,10 @@
 title: Lightboard
 link: http://betaweb.dowjones.com/db/lightboard
 date: 2016-02-17 12:00:00
-images:
-- images/lightboard1.png
-- images/lightboard2.png
-- images/lightboard3.png
+media:
+- {type: img, url: images/lightboard1.png}
+- {type: img, url: images//lightboard2.png}
+- {type: img, url: images//lightboard3.png}
 tags:
 - web
 - design

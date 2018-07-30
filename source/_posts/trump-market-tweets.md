@@ -7,8 +7,8 @@ categories:
 tags:
 - illustration
 - work
-images:
-- images/wsj/trump-hands.jpg
+media:
+- {type: img, url: images/wsj/trump-hands.jpg}
 ---
 
 This illustration was never approved.

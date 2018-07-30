@@ -2,9 +2,9 @@
 title: Intention.js
 link: http://intentionjs.com
 date: 2016-02-19 12:00:00
-images:
-- images/intention1.png
-- images/intention2.png
+media:
+- {type: img, url: images/intention1.png}
+- {type: img, url: images//intention2.png}
 tags:
 - web
 - design

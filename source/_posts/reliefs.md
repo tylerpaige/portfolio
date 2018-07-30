@@ -6,7 +6,7 @@ categories:
 - past
 tags:
 - illustration
-images:
-- images/relief-tests-1.png
-- images/relief-tests-2.png
+media:
+- {type: img, url: images/relief-tests-1.png}
+- {type: img, url: images//relief-tests-2.png}
 ---

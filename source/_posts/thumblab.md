@@ -5,8 +5,8 @@ noTitle: true
 present: true
 categories:
 - present
-images:
-- images/thumblab-10fps.gif
+media:
+- {type: img, url: images/thumblab-10fps.gif}
 tags:
 - design
 - work

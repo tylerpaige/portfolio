@@ -1,17 +1,17 @@
 ---
 title: Constrained Local Models
 date: 2014-11-11 12:00:00
-images:
-- images/facial-recognition-subversion.jpg
-- images/constrained-local-models.jpg
-- images/clm/sneakers-1.jpg
-- images/clm/sneakers-2.jpg
-- images/clm/pattern-painted-1.jpg
-- images/clm/pattern-painted-2.jpg
-- images/clm/pattern-painted-3.jpg
-- br
-- images/clm/body-suit.jpg
-- images/clm/body-suit-2.jpg
+media:
+- {type: img, url: images/facial-recognition-subversion.jpg}
+- {type: img, url: images//constrained-local-models.jpg}
+- {type: img, url: images//clm/sneakers-1.jpg}
+- {type: img, url: images//clm/sneakers-2.jpg}
+- {type: img, url: images//clm/pattern-painted-1.jpg}
+- {type: img, url: images//clm/pattern-painted-2.jpg}
+- {type: img, url: images//clm/pattern-painted-3.jpg}
+- {type: br}
+- {type: img, url: images//clm/body-suit.jpg}
+- {type: img, url: images//clm/body-suit-2.jpg}
 tags:
 - exhibitions
 - performance

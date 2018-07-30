@@ -1,12 +1,12 @@
 ---
 title: Sketches on Scalabity
 date: 2014-02-14 12:00:00
-images:
-- images/flags-on-cars-mimicry.png
-- images/flags-on-cars.png
-- images/flags-template.jpg
-- images/megaphones-template.jpg
-- images/navigation-scalability.jpg
+media:
+- {type: img, url: images/flags-on-cars-mimicry.png}
+- {type: img, url: images//flags-on-cars.png}
+- {type: img, url: images//flags-template.jpg}
+- {type: img, url: images//megaphones-template.jpg}
+- {type: img, url: images//navigation-scalability.jpg}
 tags:
 - drawings
 categories:

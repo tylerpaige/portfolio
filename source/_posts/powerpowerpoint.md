@@ -2,8 +2,8 @@
 title: Powerpowerpoint
 link: https://github.com/tylerpaige/power-ppt
 date: 2016-02-16 12:00:00
-images:
-- images/powerpowerpoint.gif
+media:
+- {type: img, url: images/powerpowerpoint.gif}
 tags:
 - web
 - open_source

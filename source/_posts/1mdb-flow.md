@@ -4,8 +4,8 @@ date: 2016-09-06 12:00:00
 link: http://www.wsj.com/graphics/1mdb-money-flow/
 categories:
 - past
-images:
-- images/wsj/1mdb.png
+media:
+- {type: img, url: images/wsj/1mdb.png}
 tags:
 - work
 - design

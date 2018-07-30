@@ -32,30 +32,22 @@ article {
 .post-imageGroup-tall {
   font-size: 0;
   line-height: 0;
-}
-.post-imageGroup img {
-  vertical-align: top;
-}
 
-.post-imageGroup-big {
-  //Support big images
   img {
-    max-width: 918px;
-  }
-}
-
-.post-imageGroup-tall {
-  //Support tall images
-  img {
-    max-width: 360px;
-  }
-}
-
-.post-imageGroup-tall > img,
-.post-imageGroup-tall > video,
-.post-imageGroup-big > img,
-.post-imageGroup-big > video,
-.post-imageGroup > img, 
-.post-imageGroup > video {
+    vertical-align: top;
     margin: 2px;
+  }
+}
+.post__media {
+  max-width: 612px;
+}
+
+.post__media--big {
+  //Support big images
+  max-width: 918px;
+}
+
+.post__media--tall {
+  //Support tall images
+  max-width: 360px;
 }

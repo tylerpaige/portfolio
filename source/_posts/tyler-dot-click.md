@@ -2,9 +2,9 @@
 title: tyler.click
 link: http://tyler.click
 date: 2016-02-20 12:00:00
-images:
-- images/tylerclick-1.jpg
-- images/tylerclick-2.jpg
+media:
+- {type: img, url: images/tylerclick-1.jpg}
+- {type: img, url: images//tylerclick-2.jpg}
 tags:
 - web
 categories:

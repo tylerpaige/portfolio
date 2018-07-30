@@ -1,13 +1,13 @@
 ---
 title: Research and Development
 date: 2016-03-01 12:00:00
-images:
-- images/randd1.png
-- images/randd2.png
-- images/randd3.png
-- images/randd4.png
-- images/randd5.png
-- images/randd6.png
+media:
+- {type: img, url: images/randd1.png}
+- {type: img, url: images//randd2.png}
+- {type: img, url: images//randd3.png}
+- {type: img, url: images//randd4.png}
+- {type: img, url: images//randd5.png}
+- {type: img, url: images//randd6.png}
 categories:
 - present
 tags:

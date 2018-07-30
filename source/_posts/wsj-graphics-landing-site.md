@@ -4,9 +4,9 @@ date: 2016-07-06 12:00:00
 link: http://graphics.wsj.com/
 categories:
 - past
-images:
-- images/wsj/landing-page-1.png
-- images/wsj/landing-page-2.png
+media:
+- {type: img, url: images/wsj/landing-page-1.png}
+- {type: img, url: images//wsj/landing-page-2.png}
 tags:
 - work
 - design

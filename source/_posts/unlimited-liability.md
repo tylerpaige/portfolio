@@ -1,13 +1,13 @@
 ---
 title: Unlimited Liability
 date: 2015-11-11 12:00:00
-images:
-- images/unlimited-liability/news-ideas-every-day.jpg
-- images/unlimited-liability/vision.jpg
-- images/unlimited-liability/night-work.jpg
-- br
-- images/unlimited-liability/visionbecomesreality-1.jpg
-- images/unlimited-liability/visionbecomesreality-2.jpg
+media:
+- {type: img, url: images/unlimited-liability/news-ideas-every-day.jpg}
+- {type: img, url: images//unlimited-liability/vision.jpg}
+- {type: img, url: images//unlimited-liability/night-work.jpg}
+- {type: br}
+- {type: img, url: images//unlimited-liability/visionbecomesreality-1.jpg}
+- {type: img, url: images//unlimited-liability/visionbecomesreality-2.jpg}
 tags:
 - exhibitions
 - design

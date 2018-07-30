@@ -1,10 +1,10 @@
 ---
 title: Green Camp, An A.R.T. Project
 date: 2016-02-21 12:00:00
-images:
-- images/green-camp.png
-- br
-- images/green-camp-map.png
+media:
+- {type: img, url: images/green-camp.png}
+- {type: br}
+- {type: img, url: images//green-camp-map.png}
 link: http://tyler.click/greencamp
 tags:
 - web

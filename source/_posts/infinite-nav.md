@@ -3,8 +3,8 @@ title: Designing User Navigation Find Your Topic
 noTitle: true
 date: 2016-02-18 12:00:00
 link: http://tyler.click/findyourtopic/
-images:
-- images/infinite-nav.jpg
+media:
+- {type: img, url: images/infinite-nav.jpg}
 tags:
 - web
 - animation

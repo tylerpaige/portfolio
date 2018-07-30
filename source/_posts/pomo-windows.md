@@ -6,7 +6,6 @@ categories:
 tags:
 - illustration
 - drawings
-images:
-- images/pomo-windows-transparent.png
-bigImages: true
+media:
+- {type: img, layout: big, url: images/pomo-windows-transparent.png}
 ---

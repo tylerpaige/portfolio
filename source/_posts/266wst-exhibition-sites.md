@@ -4,13 +4,13 @@ date: 2016-02-28 12:00:00
 link: http://266w25st.com
 categories:
 - past
-images:
-- images/266w25st/department-of-embodied-fantasy.gif
-- images/266w25st/icroed.gif
-- images/266w25st/basement-economics.png
-- images/266w25st/oblivias-parents-house.png
-- images/266w25st/pros-poetry.png
-- images/266w25st/silver-screen.gif
+media:
+- {type: img, url: images/266w25st/department-of-embodied-fantasy.gif}
+- {type: img, url: images//266w25st/icroed.gif}
+- {type: img, url: images//266w25st/basement-economics.png}
+- {type: img, url: images//266w25st/oblivias-parents-house.png}
+- {type: img, url: images//266w25st/pros-poetry.png}
+- {type: img, url: images//266w25st/silver-screen.gif}
 tags:
 - web
 - 266w25st
