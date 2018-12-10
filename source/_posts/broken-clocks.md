@@ -1,4 +1,4 @@
-----
+---
 title: Broken Clocks
 noTitle: true
 tags:
@@ -7,8 +7,9 @@ tags:
 categories:
 - past
 date: 2015-05-30 12:00:00
-----
-<div class="embeddedVideo-container"><div class="embeddedVideo video-16-9"><iframe src="https://player.vimeo.com/video/164481682?color=BDB7AD&title=0&byline=0&portrait=0" width="612" height="344" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>
+media: 
+- {type: vimeo, url: https://player.vimeo.com/video/164481682?color=BDB7AD&title=0&byline=0&portrait=0, aspectRatio: 56.2}
+---
 
 **Times Square, Part 3: Broken Clocks**
 

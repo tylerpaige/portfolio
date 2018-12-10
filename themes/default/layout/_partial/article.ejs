@@ -7,33 +7,41 @@
       <% 
       post.media.forEach(function(media) {
         var type = media.type;   
+        var layoutClass;
+        if (media.layout === 'big') {
+          layoutClass = 'post__media--big';
+        } else if (media.layout === 'tall') {
+          layoutClass = 'post__media--tall';
+        } else {
+          layoutClass = 'post__media';
+        }
         if (type == 'img' || type == 'image') {
           var link = media.link ? media.link : media.url;
-          var layoutClass;
-          if (media.layout === 'big') {
-            layoutClass = 'post__media--big';
-          } else if (media.layout === 'tall') {
-            layoutClass = 'post__media--tall';
-          } else {
-            layoutClass = 'post__media';
-          }
       %>
-          <a href="<%= link %>">
+          <a href="/<%= link %>">
             <img class="<%= layoutClass %>" src="/<%= media.url %>" />
           </a>
       <%
         } else if (type == 'video') {
           var posterAttr = media.poster ? 'poster="/' + media.poster + '"' : '';
       %> 
-          <video class="<% layoutClass %>" playsinline autoplay loop muted preload="auto" <%= posterAttr %>>
-            <source type="video/mp4" src="<%= media.url %>" />
+          <video class="<%= layoutClass %>" playsinline autoplay loop muted preload="auto" <%= posterAttr %>>
+            <source type="video/mp4" src="/<%= media.url %>" />
           </video>
       <%
         } else if (type == 'br') {
       %>
           <br />
       <%
-        } 
+        } else if (type === 'vimeo') {
+      %>
+        <div class="embeddedVideo-container <%= layoutClass %>">
+          <div class="embeddedVideo" style="padding-top: <%= media.aspectRatio %>%">
+            <iframe src="<%= media.url %>" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+      <%
+        }
       %>
       <%
       });

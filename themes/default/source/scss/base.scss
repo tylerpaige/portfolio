@@ -74,7 +74,6 @@ blockquote+p{
 
 
 header,
-body>section,
 body>nav,
 footer {
   width: 100%;
@@ -82,11 +81,14 @@ footer {
   box-sizing:border-box;
 }
 
+article {
+  padding: 0 15px 0 30px;
+}
+
 /* Content Sections */
 body>section {
   background: $darkGray;
   color: rgb(140, 140, 140);
-  overflow-x: hidden;
   a,
   a:visited {
     color: $beige;
@@ -102,7 +104,7 @@ article{
   position:relative;
   .permalink {
     position:absolute;
-    left: -20px;
+    left: 10px;
   }
   &+article {
     margin-top: 45px;
@@ -119,8 +121,7 @@ article{
   img,
   blockquote,
   video,
-  ul,
-  .embeddedVideo-container {
+  ul {
       width:100%;
       max-width:612px;
   }

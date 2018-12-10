@@ -11,7 +11,7 @@ tags:
 - design-story-design
 - work
 categories:
-- present
+- past
 ---
 
 The World Cup is typically a time for newsrooms to wonder, "How can we get Americans interested in this event that we can actually plan for?"

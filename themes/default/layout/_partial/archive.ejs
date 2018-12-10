@@ -1,15 +1,19 @@
 <% if (splash){ %>
   <section class="now">
+    <div class="section-gradient js-sticky-gradient">
+      <div class="js-gradient-sentinel"></div>
+    </div>
     <h3 class="js-sticky-hed">Featured</h3>
-    <div class="section-gradient js-sticky-gradient"></div>
     <% site.categories.findOne({name: 'present'}).posts.sort('date', -1).each(function(post){ %>
       <%- partial('article', {post: post}) %>
     <% }) %>
   </section>
 <% } %>
 <section class="past">
+  <div class="section-gradient js-sticky-gradient">
+    <div class="js-gradient-sentinel"></div>
+  </div>
   <h3 class="js-sticky-hed">Archived</h3>
-  <div class="section-gradient js-sticky-gradient"></div>
   <% page.posts.each(function(post) { %>
 
     <% if(post.categories.data.length === 0 || post.categories.data[0].name == 'past') { %>

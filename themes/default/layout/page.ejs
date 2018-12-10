@@ -25,8 +25,10 @@
     <%- partial('_partial/header', {splash: false}) %>
   <% } %>
   <section class="page">
+    <div class="section-gradient js-sticky-gradient">
+      <div class="js-gradient-sentinel"></div>
+    </div>
     <h3 class="js-sticky-hed"><%= page.title %></h3>
-    <div class="section-gradient js-sticky-gradient"></div>
     </div>
     <div class="section-content">
       <%- page.content %>

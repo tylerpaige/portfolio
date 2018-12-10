@@ -3,7 +3,6 @@
 
 article {
   position: relative;
-  z-index: 100;
 }
 
 .post-tags {
@@ -32,12 +31,22 @@ article {
 .post-imageGroup-tall {
   font-size: 0;
   line-height: 0;
+  z-index: 200;
+  position: relative;
 
-  img {
+  img,
+  .embeddedVideo-container {
     vertical-align: top;
     margin: 2px;
   }
 }
+
+.post__media,
+.post__media--big,
+.post-imageGroup-tall {
+  margin: 2px;
+}
+
 .post__media {
   max-width: 612px;
 }
@@ -50,4 +59,9 @@ article {
 .post__media--tall {
   //Support tall images
   max-width: 360px;
+}
+
+article p > img {
+  max-width: 100%;
+  width: auto;
 }

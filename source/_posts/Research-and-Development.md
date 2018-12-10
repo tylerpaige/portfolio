@@ -9,7 +9,7 @@ media:
 - {type: img, url: images//randd5.png}
 - {type: img, url: images//randd6.png}
 categories:
-- present
+- past
 tags:
 - design
 - animation
@@ -22,4 +22,4 @@ Because of the performative nature of this piece, this website is available only
 
 _Brief excerpts:_
 
-<div class="embeddedVideo-container"><div class="embeddedVideo" style="padding-top:110.63%"><iframe src="https://player.vimeo.com/video/164472099?color=BDB7AD&title=0&byline=0&portrait=0" width="612" height="677" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>
+<div class="embeddedVideo-container post__media"><div class="embeddedVideo" style="padding-top:110.63%"><iframe src="https://player.vimeo.com/video/164472099?color=BDB7AD&title=0&byline=0&portrait=0" width="612" height="677" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>
