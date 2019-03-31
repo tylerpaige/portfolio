@@ -9,8 +9,8 @@ media:
 - {type: img, url: images/wsj/then-now-4.jpeg}
 tags:
 - web
-- graphics
-- work
+- journalism
+- data-viz
 categories:
 - present
 ---

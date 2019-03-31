@@ -10,7 +10,7 @@ media:
 - {type: img, layout: big, url: images//wsj/year-ahead-2017-3.jpg}
 tags:
 - web
-- work
+- journalism
 - digital-story-design
 categories:
 - past

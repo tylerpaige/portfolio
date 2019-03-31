@@ -8,8 +8,8 @@ media:
 - {type: img, layout: tall, url: images/wsj/wc-more-american-4.jpg}
 link: https://www.wsj.com/graphics/wc-most-american/?m=brazil-vs-switzerland
 tags:
-- design-story-design
-- work
+- web
+- journalism
 categories:
 - past
 ---

@@ -7,7 +7,7 @@ media:
 - {type: img, layout: big, url: images/wsj/rohingya-2.jpg}
 tags:
 - web
-- work
+- journalism
 categories:
 - past
 ---

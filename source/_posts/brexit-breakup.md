@@ -7,7 +7,6 @@ categories:
 media:
 - {type: img, url: images/wsj/brexit-breakup.png}
 tags:
-- work
 - illustration
 ---
 Illustration assisting [Jessica Kuronen](http://www.jesskuronen.com/).

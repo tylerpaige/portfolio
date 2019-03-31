@@ -8,9 +8,9 @@ media:
 - {type: img, layout: big, url: images/wsj/climate-storms-map.jpg}
 tags:
 - web
-- work
+- journalism
 categories:
-- present
+- past
 ---
 
 The Price of Climate is a series of articles that looks at the financial effects of climate change. It’s a sort of different take than we’re used to seeing. There's no aerial shots of melting ice caps. The color scheme isn't ocean blue. 

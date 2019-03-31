@@ -6,11 +6,11 @@ media:
 - {url: images/wsj/quants-bigtop.mp4, type: video, poster: images/wsj/quants-bigtop-poster.jpg}
 - {url: images/wsj/quants-pointer.png, type: img}
 tags:
-- design
 - web
 - animation
+- journalism
 categories:
-- present
+- past
 ---
 
 The Quants is a 18-part series re-examining quantitative investing, 10 years after The Journal first investigated them. Along with Jessia Ma and Jessica Kuronen, we made a big package to visually underscore "the quants have officially won."

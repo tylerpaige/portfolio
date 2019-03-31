@@ -9,7 +9,7 @@ media:
 tags:
 - web
 - design
-- work
+- journalism
 categories:
 - past
 ---

@@ -12,9 +12,8 @@ media:
 - {type: img, layout: tall, url: images/wsj/spotify-5.png}
 - {type: img, layout: tall, url: images/wsj/spotify-6.png}
 tags:
-- work
-- design
-- graphics
+- journalism
+- data-viz
 - web
 ---
 To report on the unusual Spotify IPO, The Wall Street Journal chose to create the _world's worst_ playlist. 

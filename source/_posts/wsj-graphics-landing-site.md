@@ -8,7 +8,7 @@ media:
 - {type: img, url: images/wsj/landing-page-1.png}
 - {type: img, url: images//wsj/landing-page-2.png}
 tags:
-- work
+- journalism
 - design
 - web
 ---

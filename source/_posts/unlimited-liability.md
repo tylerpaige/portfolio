@@ -13,7 +13,6 @@ tags:
 - design
 - sound
 - writing
-- design
 categories:
 - past
 ---

@@ -8,7 +8,6 @@ media:
 tags:
 - web
 - design
-- work
 categories:
 - past
 - test

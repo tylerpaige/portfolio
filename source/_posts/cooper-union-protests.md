@@ -4,6 +4,7 @@ categories:
 - past
 tags:
 - design
+- posters
 date: 2012-12-03 12:00:00
 media:
 - {type: img, url: images/summit-on-debt-and-education.jpg}

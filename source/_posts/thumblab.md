@@ -10,7 +10,7 @@ media:
 - {type: vimeo, url: https://player.vimeo.com/video/164466626?loop=1&color=BDB7AD&title=0&byline=0&portrait=0, aspectRatio: 56.2}
 tags:
 - design
-- work
+- branding
 - animation
 - illustration
 ---

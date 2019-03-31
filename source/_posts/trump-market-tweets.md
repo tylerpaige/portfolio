@@ -6,7 +6,7 @@ categories:
 - past
 tags:
 - illustration
-- work
+- journalism
 media:
 - {type: img, url: images/wsj/trump-hands.jpg}
 ---

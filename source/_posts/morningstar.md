@@ -12,12 +12,12 @@ media:
 - {url: images/wsj/morningstar-sketch-stars.jpg, type: img}
 - {url: images/wsj/morningstar-apple-watch-promo.jpg, type: img}
 tags:
-- design
 - web
 - animation
-- graphics
+- data-viz
+- journalism
 categories:
-- present
+- past
 ---
 
 Morningstar has everyone convinced they can predict the future, but their ratings are about reliable as a magic 8 ball. With Jessica Kuronen, we gave them a **gold star** — or two — for their best efforts. Also we collaborated with Joel Eastwood to make a bunch of data visualization to prove the point.
