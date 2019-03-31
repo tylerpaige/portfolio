@@ -11,7 +11,6 @@ media:
 link: https://www.wsj.com/graphics/run-your-own-meal-kit-company/
 tags:
 - illustration
-- design-story-design
 - journalism
 categories:
 - present
