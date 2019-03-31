@@ -11,7 +11,6 @@ media:
 tags:
 - web
 - journalism
-- digital-story-design
 categories:
 - past
 ---

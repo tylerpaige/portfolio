@@ -6,6 +6,7 @@ media:
 - {url: images/wsj/twostate.gif, type: img}
 tags:
 - web
+- journalism
 categories:
 - past
 ---
