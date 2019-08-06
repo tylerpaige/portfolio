@@ -10,11 +10,15 @@ date: 2016-09-19 15:20:34
 
 ---
 
-I am an artist who works in sound, video, and interfaces; and I live in New York. Currently, I am a graphics developer at the Wall Street Journal. I am interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
+I am an artist who works in sound, video, and interfaces; and I live in New York. Currently, I am a developer at [Linked by Air](https://www.linkedbyair.net/), making websites for art museums and cultural institutions.
+
+---
+
+Until recently, I was a graphics developer at the Wall Street Journal. There, I was interested in <div class="split-container"><div class="split-left">how text can be combined in multiple forms to create compelling stories — similar to how we discuss "multimedia" stories.</div><div class="split-right">how we can think about websites as durational experiences more like video games and less like newspapers</div></div>
 
 My work at the Journal falls mostly under the very broad category of "digital editorial design".
 
-Right now I am interested in: <div class="split-container">How to dissect a photo and power a narrative</div>
+My last ongoing investigation was: <div class="split-container">How to dissect a photo and power a narrative</div>
 
 ---
 
