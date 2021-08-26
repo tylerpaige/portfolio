@@ -8,7 +8,7 @@ media:
 tags:
 - illustration
 categories:
-- present
+- past
 ---
 
 Another poster for Open Flame's World Pride party :-)

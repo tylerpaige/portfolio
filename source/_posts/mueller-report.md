@@ -9,7 +9,7 @@ tags:
 - journalism
 - data-viz
 categories:
-- present
+- past
 ---
 
 When the Mueller Report was released to the public, Joel Eastwood, Dylan Moriarty, and I pumped out this one-day project looking the categorization of redactions. Of it all, I'm most proud of this solitaire-type animation, which is totally responsive! 
