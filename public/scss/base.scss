@@ -16,7 +16,8 @@ html{
     font-size: 62.5%;
 }
 body{
-    background: $blue;
+    // background: $blue;
+    background: #F3CDC7;
 }
 
 a {
@@ -43,11 +44,13 @@ li{
     &:before {
       content: '•';
       padding-right: 0.5em;
-      color: $lightBeige;
+      // color: $lightBeige;
+      color: #D9D2C6;
     }
 }
 blockquote{
-  border-left: 1px solid blue;
+  // border-left: 1px solid blue;
+  border-left: 1px solid #0f0;
   padding-left: 1em;
 
   p {
@@ -77,12 +80,16 @@ article {
 
 /* Content Sections */
 body>section {
-  background: $darkGray;
-  color: rgb(140, 140, 140);
+  // background: $darkGray;
+  // color: rgb(140, 140, 140);
+  background: #9f9f9f;
+  color: #1e1e1e;
   a,
   a:visited {
-    color: $beige;
-    @include underline($beige, #1e1e1e);
+    // color: $beige;
+    // @include underline($beige, #1e1e1e);
+    color: #0f0;
+    @include underline(#0f0, #9f9f9f);
   }
   a.imgLink {
     background: none;

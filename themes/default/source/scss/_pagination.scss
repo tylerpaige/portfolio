@@ -7,8 +7,10 @@ nav#page-nav {
 
   padding: 140px 15px 30px 30px;
   font-size: 5.0rem;
-  color: $beige;
-  @include gradient(#1e1e1e, 100px, $blue);
+  // color: $beige;
+  // @include gradient(#1e1e1e, 100px, $blue);
+  color: magenta;
+  @include gradient(#9f9f9f, 100px, #F3CDC7);
 
   &>.wrapper{
     width: 100%;

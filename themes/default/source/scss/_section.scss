@@ -10,7 +10,8 @@ section {
     margin-bottom: -25vh;
     z-index: 10;
 
-    @include background-image(linear-gradient($mutedPink, transparent));
+    // @include background-image(linear-gradient($mutedPink, transparent));
+    @include background-image(linear-gradient(#556a07, transparent));
     background-size: 100% 100%;
     background-repeat: no-repeat;
     @include transition(transform .3s linear);
@@ -70,7 +71,8 @@ section {
 
   h1,
   h3 {
-    color: $lightBeige;
+    // color: $lightBeige;
+    color: #1e1e1e;
     position: sticky;
     z-index: 10;
     top: 0;

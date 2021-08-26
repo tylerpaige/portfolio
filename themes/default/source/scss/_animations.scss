@@ -42,3 +42,21 @@ span.flip{ //Just for the ¶
     background: $lightBeige;
   }
 }
+
+.pinkGrayFade {
+  @include animation('pinkGrayFade' 5s infinite);
+}
+@include keyframes('pinkGrayFade') {
+  0% {
+    background: #F3CDC7;
+  }
+  20% {
+    background: #F3CDC7;
+  }
+  80% {
+    background: #9f9f9f;
+  }
+  100% {
+    background: #9f9f9f;
+  }
+}

@@ -13,7 +13,7 @@ footer {
     top: 25px;
     z-index: 200;
     padding: 20px 15px 25px 30px;
-    @include animation(blueWhiteFade 2.5s linear alternate infinite);
+    @include animation(pinkGrayFade 2.5s linear alternate infinite);
     @include transform(rotate(-1deg));
   }
   &:after {
@@ -25,6 +25,6 @@ footer {
     top: 45px;
     left: 0;
     z-index: 100;
-    @include animation(blueWhiteFade 2.5s linear alternate infinite);
+    @include animation(pinkGrayFade 2.5s linear alternate infinite);
   }
 }
