@@ -7,10 +7,8 @@ nav#page-nav {
 
   padding: 140px 15px 30px 30px;
   font-size: 5.0rem;
-  // color: $beige;
-  // @include gradient(#1e1e1e, 100px, $blue);
-  color: magenta;
-  @include gradient(#9f9f9f, 100px, #F3CDC7);
+  color: $present-link-color;
+  @include gradient($background-color, 100px, $present-accent-color);
 
   &>.wrapper{
     width: 100%;
@@ -49,7 +47,7 @@ nav#page-nav {
 
   a,
   a:visited {
-    color: #1e1e1e;
+    color: $text-color;
   }
 
 }

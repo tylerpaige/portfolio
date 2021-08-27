@@ -8,3 +8,39 @@ $mutedPurple : rgb(94, 53, 132);
 $darkGray   : rgb(30,30, 30);
 
 $nowBackground : rgb(30,30,30);
+
+$pink: #F3CDC7;
+$magenta: magenta;
+$dark-green: #3f4d0d;
+$lime-green: #0f0;
+$gray: #9f9f9f;
+$black: #1e1e1e;
+$white-green: #c6dbcd;
+$teal: #02CABD;
+
+$background-color: $gray;
+$text-color: $black;
+$link-color: $lime-green;
+$tertiary-color: #D9D2C6;
+
+$present-accent-color: $pink;
+$present-text-color: $black;
+$present-link-color: $magenta;
+
+// $past-accent-color: $dark-green;
+// $past-text-color: $white-green;
+// $past-link-color: $lime-green;
+
+// Orange background, black text
+// $past-accent-color: #ffa700;
+// $past-text-color: $black;
+// $past-link-color: $lime-green;
+
+// Black background, tan ttext
+// $past-accent-color: $black;
+// $past-text-color: #f0e7df;
+// $past-link-color: $lime-green;
+
+$past-accent-color: $teal;
+$past-text-color: $black;
+$past-link-color: $black;

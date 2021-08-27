@@ -6,13 +6,9 @@ header {
   padding-bottom: 65px;
   z-index: 2;
   overflow-x: hidden;
-  // color: $lightBeige;
-  color: #1e1e1e;
+  background: $present-accent-color;
+  color: $present-text-color;
 
-  &.past {
-    // background: $mutedPink;
-    background: #556a07;
-  }
 
   &:after{
     content:'';
@@ -22,7 +18,7 @@ header {
     height: 100%;
     top: -45px;
     left: -10%;
-    border-bottom: 2px solid #1e1e1e;
+    border-bottom: 2px solid currentColor;
 
     z-index: -1;
     @include transform(rotate(-2deg));
@@ -38,7 +34,7 @@ header {
     }
   }
   a {
-    color: #1e1e1e;
+    color: currentColor;
   }
   h2 {
     font-size: 36px;
@@ -63,17 +59,13 @@ header {
     margin-bottom: 13px;
   }
   ul a {
-    // color: $lightBeige;
-    color: #a0a;
+    color: $present-link-color;
   }
   a.inlineLink {
-    border-bottom: 6px solid #1e1e1e;
+    border-bottom: 6px solid currentColor;
   }
   ul {
-    display: inline-block;
     vertical-align: top;
-    width: 49%;
-    max-width: 200px;
   }
   li {
     list-style: none;
@@ -82,7 +74,7 @@ header {
 
     &:before {
       content: '•';
-      color: #1e1e1e;
+      color: currentColor;
       padding-right: 0.5em;
     }
   }
@@ -94,6 +86,26 @@ header {
   }
 }
 
-header.past ul a {
-  color: #0f0;
+header.past {
+  background: $past-accent-color;
+  color: $past-text-color;
+
+  ul a {
+    color: $past-link-color;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 649px) {
+  header ul {
+    display: inline-block;
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  header ul {
+    display: inline-block;
+    margin-right: 2em;
+  }
+  
 }

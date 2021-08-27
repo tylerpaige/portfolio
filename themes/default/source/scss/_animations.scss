@@ -44,19 +44,19 @@ span.flip{ //Just for the ¶
 }
 
 .pinkGrayFade {
-  @include animation('pinkGrayFade' 5s infinite);
+  @include animation('footer-fade' 5s infinite);
 }
-@include keyframes('pinkGrayFade') {
+@include keyframes('footer-fade') {
   0% {
-    background: #F3CDC7;
+    background: $present-accent-color;
   }
   20% {
-    background: #F3CDC7;
+    background: $present-accent-color;
   }
   80% {
-    background: #9f9f9f;
+    background: $background-color;
   }
   100% {
-    background: #9f9f9f;
+    background: $background-color;
   }
 }

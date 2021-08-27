@@ -2,11 +2,10 @@
 @import 'mixins';
 
 section.tag {
-  // @include gradient($mutedPink, 250px, rgb(30,30,30));
-  @include gradient(#556a07, 250px, rgb(30,30,30));
+  @include gradient($past-accent-color, 250px, $background-color);
   h1,
   h3 {
-    // color: $lightBeige;
-    color: #1e1e1e;
+    color:  $past-text-color;
+    margin-top: 0;
   }
 }

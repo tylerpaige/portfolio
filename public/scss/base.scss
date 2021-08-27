@@ -16,8 +16,8 @@ html{
     font-size: 62.5%;
 }
 body{
-    // background: $blue;
-    background: #F3CDC7;
+    background: $present-accent-color;
+    background: $background-color;
 }
 
 a {
@@ -44,13 +44,11 @@ li{
     &:before {
       content: '•';
       padding-right: 0.5em;
-      // color: $lightBeige;
-      color: #D9D2C6;
+      color: $tertiary-color;
     }
 }
 blockquote{
-  // border-left: 1px solid blue;
-  border-left: 1px solid #0f0;
+  border-left: 1px solid $link-color;
   padding-left: 1em;
 
   p {
@@ -80,16 +78,12 @@ article {
 
 /* Content Sections */
 body>section {
-  // background: $darkGray;
-  // color: rgb(140, 140, 140);
-  background: #9f9f9f;
-  color: #1e1e1e;
+  background: $background-color;
+  color: $text-color;
   a,
   a:visited {
-    // color: $beige;
-    // @include underline($beige, #1e1e1e);
-    color: #0f0;
-    @include underline(#0f0, #9f9f9f);
+    color: $link-color;
+    @include underline($link-color, $background-color);
   }
   a.imgLink {
     background: none;

@@ -3,8 +3,7 @@
 
 .now {
   .section-gradient {
-    // @include background-image(linear-gradient($blue, transparent));
-    @include background-image(linear-gradient(#F3CDC7, transparent));
+    @include background-image(linear-gradient($present-accent-color, transparentize($present-accent-color, 1)));
     background-repeat: no-repeat;
   }
 }

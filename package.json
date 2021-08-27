@@ -6,7 +6,7 @@
     "version": "5.4.0"
   },
   "scripts": {
-    "hexo:build": "hexo generate && compass compile",
+    "hexo:build": "compass compile && hexo generate",
     "dev": "http-server -c-1 -p 4000 ./public"
   },
   "dependencies": {
