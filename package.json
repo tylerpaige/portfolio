@@ -1,14 +1,13 @@
 {
-  "name": "hexo-site",
+  "name": "tyler-paige-portfolio",
   "version": "0.0.0",
   "private": true,
   "hexo": {
     "version": "5.4.0"
   },
   "scripts": {
-    "build": "hexo generate && compass compile",
-    "dev": "http-server -c-1 -p 4000 ./public",
-    "deploy": "git push dokku master"
+    "hexo:build": "hexo generate && compass compile",
+    "dev": "http-server -c-1 -p 4000 ./public"
   },
   "dependencies": {
     "compass": "^0.1.1",
