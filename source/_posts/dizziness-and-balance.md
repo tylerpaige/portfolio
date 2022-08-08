@@ -1,7 +1,7 @@
 ---
 title: Center for Dizziness and Balance
 date: 2022-08-08 12:00:00
-link: dizziness.andbalance.center/
+link: https://dizziness.andbalance.center/
 categories:
 - present
 media:
