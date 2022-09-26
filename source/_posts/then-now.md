@@ -12,7 +12,7 @@ tags:
 - journalism
 - data-viz
 categories:
-- present
+- past
 ---
 
 It's been a decade since the 2008 Financial Crisis, but risk hasn't disappeared — it has simply migrated elsewhere. I loved this collaboration with the amazing Jessica Kuronen and Gabriel Gianordoli to tell this expansive story in bite-sized factoids. 
