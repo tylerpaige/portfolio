@@ -3,7 +3,7 @@ title: Todd Oldham Maker Shop
 date: 2022-08-09 12:00:00
 link: https://toddoldhammakershop.com
 categories:
-- present
+- past
 media:
 - {type: img, layout: tall, url: images/todd-oldham-maker-shop-1.png}
 - {type: img, layout: tall, url: images/todd-oldham-maker-shop-2.png}
