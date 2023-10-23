@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gutter: 1rem;
+}
+
+@media screen and (min-width: theme("screens.md")) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@layer base {
+  .markdown p {
+    @apply mb-em/2 last:mb-0;
+  }
+
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    @apply text-7;
+    @apply font-bold;
+    @apply mb-em/2 last:mb-0;
+  }
+
+  .markdown blockquote {
+    @apply border-l-2px;
+    @apply border-l-maroon;
+    @apply pl-em;
+    @apply mb-em/2;
+    @apply last:mb-0;
+  }
+
+  .markdown a,
+  .markdown a:visited {
+    @apply text-lime;
+    @apply underline;
+  }
+}
