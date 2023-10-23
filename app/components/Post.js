@@ -40,6 +40,7 @@ function Media({ media }) {
                 src={media.asset.url}
                 width={media.asset.metadata.dimensions.width}
                 height={media.asset.metadata.dimensions.height}
+                alt={media.alt}
                 size={media.size}
                 key={_key}
               />
@@ -69,7 +70,7 @@ function Video({ url, aspectRatio = "16/9" }) {
   );
 }
 
-function PortfolioImage({ src, width, height, size = "default" }) {
+function PortfolioImage({ src, width, height, alt, size = "default" }) {
   const sizeClassNames = {
     default: "max-w-md",
     sm: "max-w-sm",
@@ -84,6 +85,7 @@ function PortfolioImage({ src, width, height, size = "default" }) {
         width={width}
         height={height}
         className={clsx("w-full", sizeClassNames[size])}
+        alt={alt}
       />
     </div>
   );

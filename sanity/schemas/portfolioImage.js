@@ -1,26 +1,31 @@
-import {defineType} from 'sanity'
+import { defineType } from "sanity";
 
 export default defineType({
-  title: 'Video',
-  name: 'video',
-  type: 'object',
+  title: "Video",
+  name: "video",
+  type: "object",
   fields: [
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
+      name: "image",
+      title: "Image",
+      type: "image",
     },
     {
-      name: 'size',
-      title: 'Size',
-      type: 'string',
-      list: ['sm', 'md', 'lg', 'xl'],
-      initialValue: 'md',
+      name: "alt",
+      title: "Alt text",
+      type: "string",
     },
     {
-      name: 'aspectRatio',
-      title: 'Aspect ratio',
-      type: 'string',
+      name: "size",
+      title: "Size",
+      type: "string",
+      list: ["sm", "md", "lg", "xl"],
+      initialValue: "md",
+    },
+    {
+      name: "aspectRatio",
+      title: "Aspect ratio",
+      type: "string",
     },
   ],
-})
+});

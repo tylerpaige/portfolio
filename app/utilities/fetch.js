@@ -82,9 +82,9 @@ export async function fetchPosts({ page = 1, tag, featured = false } = {}) {
       error: {
         status: "404",
         type: "Not Found",
-        message: "No posts found."
-      }
-    }
+        message: "No posts found.",
+      },
+    };
   }
 
   const totalPages = await client
