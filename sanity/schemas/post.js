@@ -1,38 +1,48 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
-  type: 'document',
+  name: "post",
+  title: "Post",
+  type: "document",
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "hideTitle",
+      title: "Hide Title?",
+      type: "boolean",
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96,
       },
     }),
     defineField({
-      name: 'media',
-      title: 'Media',
-      type: 'array',
+      name: "url",
+      title: "URL",
+      type: "string",
+    }),
+    defineField({
+      name: "media",
+      title: "Media",
+      type: "array",
       of: [
-        {type: "portfolioImage", title: "Image"},
-        {type: "video"},
-        {type: "embed"}
+        { type: "portfolioImage", title: "Image" },
+        { type: "video" },
+        { type: "embed" },
       ],
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      name: "body",
+      title: "Body",
+      type: "blockContent",
     }),
     defineField({
       name: "featured",
@@ -40,32 +50,32 @@ export default defineType({
       type: "boolean",
     }),
     defineField({
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'tag'}}],
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: { type: "tag" } }],
     }),
     defineField({
-      name: 'collaborators',
-      title: 'Collaborators',
-      type: 'array',
+      name: "collaborators",
+      title: "Collaborators",
+      type: "array",
       of: [
         {
-          type: 'reference',
-          to: [{type: 'collaborator'}],
+          type: "reference",
+          to: [{ type: "collaborator" }],
         },
       ],
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
     }),
   ],
 
   preview: {
     select: {
-      title: 'title',
+      title: "title",
       // author: 'author.name',
       // media: 'mainImage',
     },
@@ -74,4 +84,4 @@ export default defineType({
     //   return {...selection, subtitle: author && `by ${author}`}
     // },
   },
-})
+});

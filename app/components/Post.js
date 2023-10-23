@@ -3,19 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { imageUrlFor } from "../utilities/image";
 import { PortableText } from "@portabletext/react";
+import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../utilities";
 
 export function Post({ post, className, bodyProps = {}, ...args }) {
-  const { title, url, slug, media, body, tags, collaborators } = post;
+  const { title, hideTitle, url, slug, media, body, tags, collaborators } =
+    post;
   const postUrl = `/${slug.current}/`;
 
   return (
     <div className={clsx("text-0", className)} {...args}>
       <div className="mb-1/2">
-        {Boolean(media.length) && <Media media={media} />}
+        {Boolean(media.length) && (
+          <Media media={media} url={url} postUrl={postUrl} />
+        )}
       </div>
       <div {...bodyProps}>
         <TitleAndDescription
           title={title}
+          hideTitle={hideTitle}
           url={url}
           postUrl={postUrl}
           body={body}
@@ -29,13 +34,13 @@ export function Post({ post, className, bodyProps = {}, ...args }) {
   );
 }
 
-function Media({ media }) {
+function Media({ media, url, postUrl }) {
   return (
     <div className={clsx("flex", "flex-wrap")}>
       {media.map(({ _type, _key, ...media }) => {
         switch (_type) {
           case "image":
-            return (
+            const image = (
               <PortfolioImage
                 src={media.asset.url}
                 width={media.asset.metadata.dimensions.width}
@@ -45,8 +50,16 @@ function Media({ media }) {
                 key={_key}
               />
             );
+            const url = media.url === "$postUrl" ? postUrl : media.url;
+            if (url) {
+              return <Link href={url}>{image}</Link>;
+            } else {
+              return image;
+            }
           case "video":
             return <Video {...media} key={_key} />;
+          case "embed":
+            return <Embed {...media} key={_key} />;
           default:
             return null;
         }
@@ -55,11 +68,22 @@ function Media({ media }) {
   );
 }
 
+function Embed({ code, aspectRatio }) {
+  return (
+    <div
+      style={{ aspectRatio }}
+      dangerouslySetInnerHTML={{ __html: code }}
+    ></div>
+  );
+}
+
 function Video({ url, aspectRatio = "16/9" }) {
+  const embedUrl = getEmbedFromVimeoUrl(url);
+
   return (
     <iframe
       style={{ aspectRatio }}
-      src={url}
+      src={embedUrl}
       width="100%"
       height="100%"
       frameborder="0"
@@ -91,22 +115,22 @@ function PortfolioImage({ src, width, height, alt, size = "default" }) {
   );
 }
 
-function TitleAndDescription({ title, url, postUrl, body }) {
-  if (title && body) {
+function TitleAndDescription({ title, hideTitle, url, postUrl, body }) {
+  if (title && !hideTitle && body) {
     return (
       <>
         <Title title={title} url={url} postUrl={postUrl} />
         <Description body={body} />
       </>
     );
-  } else if (!title && body) {
+  } else if ((!title || hideTitle) && body) {
     return (
       <>
         <Permalink postUrl={postUrl} className={"float-left"} />
         <Description body={body} />
       </>
     );
-  } else if (title && !body) {
+  } else if (title && !hideTitle && !body) {
     return <Title title={title} url={url} postUrl={postUrl} />;
   } else {
     return <Permalink postUrl={postUrl} />;

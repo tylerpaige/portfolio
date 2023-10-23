@@ -62,5 +62,8 @@ export default defineType({
     defineArrayMember({
       type: "portfolioImage",
     }),
+    defineArrayMember({
+      type: "video",
+    }),
   ],
 });

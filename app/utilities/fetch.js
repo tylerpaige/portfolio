@@ -6,6 +6,8 @@ const PER = 10;
 const postProjectection = `{
   _id,
   title,
+  hideTitle,
+  url,
   body,
   slug,
   featured,
