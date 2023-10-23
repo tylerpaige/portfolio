@@ -171,14 +171,14 @@ function TitleAndDescription({ title, hideTitle, url, postUrl, body }) {
     return (
       <>
         <Title title={title} url={url} postUrl={postUrl} className="mb-em" />
-        <Description body={body} />
+        <Description body={body} className="mb-em" />
       </>
     );
   } else if ((!title || hideTitle) && body) {
     return (
       <>
         <Permalink postUrl={postUrl} className="mb-em/2 last:mb-0" />
-        <Description body={body} className="mb-em/2 last:mb-0" />
+        <Description body={body} className="mb-em last:mb-0" />
       </>
     );
   } else if (title && !hideTitle && !body) {
