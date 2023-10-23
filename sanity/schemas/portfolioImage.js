@@ -1,8 +1,8 @@
 import { defineType } from "sanity";
 
 export default defineType({
-  title: "Video",
-  name: "video",
+  title: "Image",
+  name: "portfolioImage",
   type: "object",
   fields: [
     {

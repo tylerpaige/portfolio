@@ -24,7 +24,7 @@ export default defineType({
       title: 'Media',
       type: 'array',
       of: [
-        {type: "image", title: "Image"},
+        {type: "portfolioImage", title: "Image"},
         {type: "video"},
         {type: "embed"}
       ],
