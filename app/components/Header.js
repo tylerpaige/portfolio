@@ -31,7 +31,7 @@ export function Header({ className, innerProps = {} }) {
           )}
           {...restInnerProps}
         >
-          <h1 className={clsx("text-4", "mb-3em/8", "md:text-12")}>
+          <h1 className={clsx("text-8", "mb-3em/8", "md:text-12")}>
             <Link
               href="/"
               className={clsx("text-inherit", "-rotate-1", "block")}
@@ -50,7 +50,7 @@ export function Header({ className, innerProps = {} }) {
               </span>
             </Link>
           </h1>
-          <h2 className={clsx("text-6", "mb-em", "max-w-[35ch]")}>
+          <h2 className={clsx("text-4", "mb-em", "max-w-[35ch]", "md:text-6")}>
             Hello, I am an artist, designer, and coder. I am thinking about
             visual & interactive narratives —
             <br />
@@ -61,9 +61,10 @@ export function Header({ className, innerProps = {} }) {
               "-text-1",
               "flex",
               "flex-col",
-              "gap-2",
+              "gap-1",
               "md:flex-row",
-              "md:justify-start"
+              "md:justify-start",
+              "md:gap-2",
             )}
           >
             <ul className="list-disc list-inside">
