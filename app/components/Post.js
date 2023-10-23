@@ -170,21 +170,28 @@ function TitleAndDescription({ title, hideTitle, url, postUrl, body }) {
   if (title && !hideTitle && body) {
     return (
       <>
-        <Title title={title} url={url} postUrl={postUrl} />
+        <Title title={title} url={url} postUrl={postUrl} className="mb-em" />
         <Description body={body} />
       </>
     );
   } else if ((!title || hideTitle) && body) {
     return (
       <>
-        <Permalink postUrl={postUrl} />
-        <Description body={body} />
+        <Permalink postUrl={postUrl} className="mb-em/2 last:mb-0" />
+        <Description body={body} className="mb-em/2 last:mb-0" />
       </>
     );
   } else if (title && !hideTitle && !body) {
-    return <Title title={title} url={url} postUrl={postUrl} />;
+    return (
+      <Title
+        title={title}
+        url={url}
+        postUrl={postUrl}
+        className="mb-em/2 last:mb-0"
+      />
+    );
   } else {
-    return <Permalink postUrl={postUrl} />;
+    return <Permalink postUrl={postUrl} className="mb-em/2 last:mb-0" />;
   }
 }
 
@@ -194,7 +201,10 @@ function Title({ title, url, postUrl, className }) {
       {url ? (
         <>
           <Permalink postUrl={postUrl} />{" "}
-          <Link href={url} className="underline underline-offset-4 text-pea-green">
+          <Link
+            href={url}
+            className="underline underline-offset-4 text-pea-green"
+          >
             {title}
             {" ↗"}
           </Link>
