@@ -1,9 +1,0 @@
-@import 'colors';
-@import 'mixins';
-
-.now {
-  .section-gradient {
-    @include background-image(linear-gradient($present-accent-color, transparentize($present-accent-color, 1)));
-    background-repeat: no-repeat;
-  }
-}
