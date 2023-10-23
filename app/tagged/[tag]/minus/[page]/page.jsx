@@ -1,10 +1,18 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { Grid, Header } from "../../../../components";
 import { fetchPosts } from "../../../../utilities";
 
 export default async function PaginatedTagPage({ params }) {
+  if (!params.tag) {
+    return notFound();
+  }
+
+  if (typeof params.page === 'undefined') {
+    return redirect(`/tagged/${params.tag}`);
+  }
+  
   const { tag } = params;
-  const page = Number(params.page || 1);
+  const page = Number(params.page) + 1;
   const response = await fetchPosts({ tag, page });
 
   if (response.error) {

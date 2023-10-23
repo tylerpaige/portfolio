@@ -291,7 +291,7 @@ function Collaborators({ collaborators }) {
   return (
     <div className="flex gap-em/2">
       <p className="">With</p>
-      <ul className="list-none flex flex-wrap">
+      <ul className="list-none flex flex-wrap gap-em/2">
         {collaborators.map((collaborator, index) => (
           <li key={index} className={clsx()}>
             {collaborator.url ? (

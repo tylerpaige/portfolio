@@ -1,7 +1,7 @@
 // sanity.js
 import { client } from "../../sanity/lib/client";
 
-const PER = 5;
+const PER = 6;
 
 const postProjectection = `{
   _id,

@@ -1,18 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "next/link";
-import pick from "lodash/pick";
-import { missingClass } from "../utilities";
-
-export function addPageNumberAsLastPathSegment({ basePath = "", page }) {
-  return `${basePath}/${page}`;
-}
-
-export function addPageNumberAsQueryParameter({ basePath, page }) {
-  const searchParams = new URLSearchParams(basePath);
-  searchParams.set("page", page.toString());
-  return decodeURIComponent(searchParams.toString());
-}
 
 export function usePagination({
   currentPage,
@@ -20,7 +8,15 @@ export function usePagination({
   basePath,
   windowSize = 5,
 }) {
-  const pathFunc = addPageNumberAsLastPathSegment;
+  // Useful creating `/minus/1` meaning the second page of results
+  const pathFunc = ({ basePath, page }) => {
+    if (page === 1) {
+      return basePath;
+    } else {
+      return `${basePath}/${page - 1}`;
+    }
+  };
+
   let paginationWindow = [];
   if (totalPages <= windowSize) {
     paginationWindow = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -60,7 +56,7 @@ export function usePagination({
   let lastPagePath;
   const pagesInWindow = paginationWindow.map((page) => ({
     page,
-    path: pathFunc ? pathFunc({ basePath, page }) : undefined,
+    path: pathFunc({ basePath, page }),
   }));
 
   if (currentPage > 1) {
@@ -121,28 +117,21 @@ export function PaginationItem({ page, path, currentPage }) {
 }
 
 export function Pagination({
+  currentPage,
+  totalPages,
+  basePath,
+  windowSize,
   alwaysShowFirstAndLastPages = true,
-  onChange,
   className,
   ...props
 }) {
-  const { currentPage, totalPages } = props;
-  const paginationProps = pick(props, [
-    "currentPage",
-    "totalPages",
-    "basePath",
-    "pathFunc",
-    "windowSize",
-    "alwaysShowFirstAndLastPages",
-  ]);
-
   const {
     pagesInWindow,
     previousPage,
     previousPagePath,
     nextPage,
     nextPagePath,
-  } = usePagination(paginationProps);
+  } = usePagination({ currentPage, totalPages, basePath, windowSize });
 
   return (
     <nav

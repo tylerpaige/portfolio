@@ -3,6 +3,10 @@ import { Grid, Header } from "../../components";
 import { fetchPosts } from "../../utilities";
 
 export default async function TagPage({ params }) {
+  if (!params.tag) {
+    return notFound();
+  }
+
   const { tag } = params;
   const response = await fetchPosts({ tag, page: 1 });
 

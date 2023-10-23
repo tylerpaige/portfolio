@@ -91,7 +91,7 @@ export function Header({ className, innerProps = {} }) {
                 <a href="/tagged/video">video</a>
               </li>
               <li>
-                <a href="/tagged/drawings">drawing</a>
+                <a href="/tagged/drawing">drawing</a>
               </li>
             </ul>
           </div>
