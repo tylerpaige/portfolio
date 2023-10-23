@@ -6,7 +6,10 @@ export default async function Home() {
   const firstPageResponse = await fetchPosts({ page: 1, featured: false });
   return (
     <div>
-      <Header className="stripe-a-pink stripe-b-gold border-r-gold bg-pink text-black" innerProps={{className: "bg-lavender"}} />
+      <Header
+        className="stripe-a-pink stripe-b-gold border-r-gold bg-pink text-black"
+        innerProps={{ className: "bg-lavender" }}
+      />
       <main>
         <section>
           <Stack title="Featured" posts={featuredPosts} />

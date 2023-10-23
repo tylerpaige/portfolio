@@ -30,7 +30,7 @@
 
   .markdown blockquote {
     @apply border-l-2px;
-    @apply border-l-maroon;
+    @apply border-l-pea-green;
     @apply pl-em;
     @apply mb-em/2;
     @apply last:mb-0;
@@ -38,7 +38,18 @@
 
   .markdown a,
   .markdown a:visited {
-    @apply text-lime;
+    @apply text-pea-green;
     @apply underline;
+  }
+
+  .markdown ul {
+    @apply list-disc;
+    @apply mb-em/2;
+    @apply last:mb-0;
+  }
+
+  .markdown .block-content {
+    @apply mb-em/2;
+    @apply last:mb-0;
   }
 }

@@ -8,7 +8,7 @@ import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../utilities";
 export function Post({ post, className, bodyProps = {}, ...args }) {
   const { title, hideTitle, url, slug, media, body, tags, collaborators } =
     post;
-  const postUrl = `/${slug.current}/`;
+  const postUrl = `/${slug?.current}/`;
 
   return (
     <div className={clsx("text-0", className)} {...args}>
@@ -25,8 +25,8 @@ export function Post({ post, className, bodyProps = {}, ...args }) {
           postUrl={postUrl}
           body={body}
         />
-        {Boolean(tags.length) && <TagList tags={tags} />}
-        {Boolean(collaborators.length) && (
+        {Boolean(Array.isArray(tags) && tags.length) && <TagList tags={tags} />}
+        {Boolean(Array.isArray(collaborators) && collaborators.length) && (
           <Collaborators collaborators={collaborators} />
         )}
       </div>
@@ -36,30 +36,45 @@ export function Post({ post, className, bodyProps = {}, ...args }) {
 
 function Media({ media, url, postUrl }) {
   return (
-    <div className={clsx("flex", "flex-wrap")}>
-      {media.map(({ _type, _key, ...media }) => {
+    <div className={clsx("flex", "flex-wrap", "gap-1/4")}>
+      {media.map(({ _type, _key, size, ...media }) => {
         switch (_type) {
-          case "image":
-            const image = (
+          case "portfolioImage":
+            const imageElement = (
               <PortfolioImage
-                src={media.asset.url}
-                width={media.asset.metadata.dimensions.width}
-                height={media.asset.metadata.dimensions.height}
+                src={media.image?.asset?.url}
+                width={media.image?.asset?.metadata?.dimensions?.width}
+                height={media.image?.asset?.metadata?.dimensions?.height}
                 alt={media.alt}
-                size={media.size}
+                size={size}
                 key={_key}
               />
             );
-            const url = media.url === "$postUrl" ? postUrl : media.url;
-            if (url) {
-              return <Link href={url}>{image}</Link>;
+            if (media.clickBehavior === "lightbox") {
+              return (
+                <Link href={media.image?.asset?.url} key={_key}>
+                  {imageElement}
+                </Link>
+              );
+            } else if (media.clickBehavior === "customUrl" && media.url) {
+              return (
+                <Link href={media.url} key={_key}>
+                  {imageElement}
+                </Link>
+              );
+            } else if (media.clickBehavior === "postUrl") {
+              return (
+                <Link href={url || postUrl} key={_key}>
+                  {imageElement}
+                </Link>
+              );
             } else {
-              return image;
+              return imageElement;
             }
           case "video":
-            return <Video {...media} key={_key} />;
+            return <Video {...media} key={_key} size={size} />;
           case "embed":
-            return <Embed {...media} key={_key} />;
+            return <Embed {...media} key={_key} size={size} />;
           default:
             return null;
         }
@@ -68,42 +83,78 @@ function Media({ media, url, postUrl }) {
   );
 }
 
-function Embed({ code, aspectRatio }) {
+const sizeClassNames = {
+  default: "max-w-md",
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg",
+  xl: "max-w-xl",
+};
+
+function Embed({ code, aspectRatio, size = "default", className, ...props }) {
+  if (!code) {
+    return <></>;
+  }
+
   return (
     <div
       style={{ aspectRatio }}
       dangerouslySetInnerHTML={{ __html: code }}
+      className={clsx(
+        className,
+        "w-full",
+        "[&_iframe]:w-full",
+        "[&_iframe]:h-full",
+        sizeClassNames[size]
+      )}
+      {...props}
     ></div>
   );
 }
 
-function Video({ url, aspectRatio = "16/9" }) {
+function Video({
+  url,
+  aspectRatio = "16/9",
+  size = "default",
+  className,
+  ...props
+}) {
   const embedUrl = getEmbedFromVimeoUrl(url);
+
+  if (!embedUrl) {
+    return <></>;
+  }
 
   return (
     <iframe
       style={{ aspectRatio }}
       src={embedUrl}
+      className={clsx(className, "w-full", "h-full", sizeClassNames[size])}
       width="100%"
       height="100%"
       frameborder="0"
       webkitallowfullscreen
       mozallowfullscreen
       allowfullscreen
+      {...props}
     ></iframe>
   );
 }
 
-function PortfolioImage({ src, width, height, alt, size = "default" }) {
-  const sizeClassNames = {
-    default: "max-w-md",
-    sm: "max-w-sm",
-    md: "max-w-md",
-    lg: "max-w-lg",
-    xl: "max-w-xl",
-  };
+function PortfolioImage({
+  src,
+  width,
+  height,
+  alt,
+  size = "default",
+  ...props
+}) {
+  if (!src) {
+    return <></>;
+  }
+
   return (
-    <div>
+    <div {...props}>
       <Image
         src={src}
         width={width}
@@ -126,7 +177,7 @@ function TitleAndDescription({ title, hideTitle, url, postUrl, body }) {
   } else if ((!title || hideTitle) && body) {
     return (
       <>
-        <Permalink postUrl={postUrl} className={"float-left"} />
+        <Permalink postUrl={postUrl} />
         <Description body={body} />
       </>
     );
@@ -142,9 +193,10 @@ function Title({ title, url, postUrl, className }) {
     <div className={clsx(className)}>
       {url ? (
         <>
-          <Permalink postUrl={postUrl} />
-          <Link href={url} className="underline underline-offset-4">
+          <Permalink postUrl={postUrl} />{" "}
+          <Link href={url} className="underline underline-offset-4 text-pea-green">
             {title}
+            {" ↗"}
           </Link>
         </>
       ) : (
@@ -166,6 +218,7 @@ function Description({ body, className }) {
         "first:mt-0",
         "mb-em/2",
         "last:mb-0",
+        "max-w-[50ch]",
         className
       )}
     >
@@ -173,16 +226,29 @@ function Description({ body, className }) {
         value={body}
         components={{
           types: {
-            image: (block) => {
-              const { asset } = block.value;
-              const { url } = asset;
-              const { width, height } = asset.metadata.dimensions;
+            portfolioImage: (block) => {
+              const url = block.value.image.asset.url;
+              const { width, height } =
+                block.value.image.asset.metadata.dimensions;
               return (
                 <PortfolioImage
                   src={url}
                   width={width}
                   height={height}
                   size="sm"
+                  className="block-content"
+                />
+              );
+            },
+            video: (block) => {
+              const { url } = block.value;
+              const aspectRatio = block.value.aspectRatio || "16/9";
+              return (
+                <Video
+                  url={url}
+                  aspectRatio={aspectRatio}
+                  size="sm"
+                  className="block-content"
                 />
               );
             },
@@ -205,12 +271,12 @@ function TagList({ tags }) {
   return (
     <div className="flex gap-em/2">
       <p className="">Tagged as:</p>
-      <ul className="list-none flex flex-wrap">
+      <ul className="list-none flex flex-wrap gap-em/2">
         {tags.map((tag, index) => (
           <li key={index} className={clsx()}>
             <Link
               href={`/tagged/${tag}/`}
-              className="underline underline-offset-4 text-lime"
+              className="underline underline-offset-4 text-pea-green"
             >
               {tag}
             </Link>
@@ -231,7 +297,7 @@ function Collaborators({ collaborators }) {
             {collaborator.url ? (
               <Link
                 href={collaborator.url}
-                className="underline underline-offset-4 text-lime"
+                className="underline underline-offset-4 text-pea-green"
               >
                 {collaborator.name}
               </Link>

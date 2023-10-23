@@ -23,6 +23,7 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "url",
@@ -48,6 +49,7 @@ export default defineType({
       name: "featured",
       title: "Featured?",
       type: "boolean",
+      initialValue: false,
     }),
     defineField({
       name: "tags",
@@ -70,6 +72,7 @@ export default defineType({
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     }),
   ],
 

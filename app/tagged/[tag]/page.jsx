@@ -4,7 +4,7 @@ import { fetchPosts } from "../../utilities";
 
 export default async function TagPage({ params }) {
   const { tag } = params;
-  const response = await fetchPosts({ tag });
+  const response = await fetchPosts({ tag, page: 1 });
 
   if (response.error) {
     return notFound();

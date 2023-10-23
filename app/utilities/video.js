@@ -5,6 +5,7 @@ export const getIdFromVimeoUrl = (url) => {
   return parseUrl[5];
 };
 
+// TODO: hide player cruft
 export const getEmbedFromVimeoUrl = (url) => {
   const id = getIdFromVimeoUrl(url);
   return `https://player.vimeo.com/video/${id}`;

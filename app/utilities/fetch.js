@@ -1,7 +1,7 @@
 // sanity.js
 import { client } from "../../sanity/lib/client";
 
-const PER = 10;
+const PER = 5;
 
 const postProjectection = `{
   _id,
@@ -14,30 +14,34 @@ const postProjectection = `{
   publishedAt,
   media[]{
     ...,
-    asset->{
-      url,
-      metadata{
-        dimensions{
-          width,
-          height,
-          aspectRatio
-        }
-      },
-      "_key": _id
+    image{
+      asset->{
+        url,
+        metadata{
+          dimensions{
+            width,
+            height,
+            aspectRatio
+          }
+        },
+        "_key": _id
+      }
     }
   },
   body[]{
     ...,
-    asset->{
-      url,
-      metadata{
-        dimensions{
-          width,
-          height,
-          aspectRatio
-        }
-      },
-      "_key": _id
+    image{
+      asset->{
+        url,
+        metadata{
+          dimensions{
+            width,
+            height,
+            aspectRatio
+          }
+        },
+        "_key": _id
+      }
     }
   },
   "tags": tags[]->title,
@@ -45,14 +49,17 @@ const postProjectection = `{
 }`;
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
-export async function fetchPosts({ page = 1, tag, featured = false } = {}) {
-  const shouldPaginate = Boolean(tag || !featured);
-  const includeFeaturedInQuery = Boolean(featured || tag);
+export async function fetchPosts({ page, tag, featured } = {}) {
   const filters = [];
   filters.push(`_type == "post"`);
-  if (!tag) {
-    filters.push(`featured == ${includeFeaturedInQuery}`);
-  } else {
+
+  if (featured === true) {
+    filters.push(`featured == ${featured}`);
+  } else if (featured === false) {
+    filters.push(`(featured == false || featured == null)`);
+  }
+
+  if (tag) {
     filters.push(`"${tag}" in tags[]->title`);
   }
   const filterStatement = `*[${filters.join(" && ")}]`;
@@ -64,9 +71,8 @@ export async function fetchPosts({ page = 1, tag, featured = false } = {}) {
   // NOTE: this is slow pagination, but since the blog will be small, it's fine.
   // Do not replicate this code for larger datasets. Instead, refer to this
   // documentation for help: https://www.sanity.io/docs/paginating-with-groq
-  const selectorStatement = shouldPaginate
-    ? `[${(page - 1) * PER}...${page * PER}]`
-    : "";
+  const selectorStatement =
+    typeof page === "number" ? `[${(page - 1) * PER}...${page * PER}]` : "";
 
   const query = [
     filterStatement,
@@ -74,6 +80,7 @@ export async function fetchPosts({ page = 1, tag, featured = false } = {}) {
     selectorStatement,
     postProjectection,
   ].join(" ");
+
   const posts = await client.fetch(query);
 
   if (!Boolean(posts.length)) {
