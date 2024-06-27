@@ -39,6 +39,7 @@ module.exports = {
     })(),
     colors: {
       black: "#1e1e1e",
+      cardboard: "#877A4D",
       "dark-green": "#3f4d0d",
       gold: "#9b9922",
       gray: "#9f9f9f",

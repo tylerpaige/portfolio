@@ -7,8 +7,8 @@ export default async function Home() {
   return (
     <div>
       <Header
-        className="stripe-a-pink stripe-b-gold border-r-gold bg-pink text-black"
-        innerProps={{ className: "bg-lavender" }}
+        className="stripe-a-green stripe-b-gold border-r-cardboard bg-green text-gold"
+        innerProps={{ className: "bg-green" }}
       />
       <main>
         <section>

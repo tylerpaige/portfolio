@@ -23,7 +23,7 @@ export function Header({ className, innerProps = {} }) {
       <div className={clsx("inline-block")}>
         <div
           className={clsx(
-            missingClass(innerClassName, "bg-") && "bg-lavender",
+            // missingClass(innerClassName, "bg-") && "bg-lavender",
             "pt-1/2",
             "pb-3/2",
             "px-1",

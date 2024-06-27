@@ -5,7 +5,7 @@ import { imageUrlFor } from "../utilities/image";
 import { PortableText } from "@portabletext/react";
 import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../utilities";
 
-export function Post({ post, className, bodyProps = {}, ...args }) {
+export function Post({ post, className, fontSize = "medium", bodyProps = {}, ...args }) {
   const { title, hideTitle, url, slug, media, body, tags, collaborators } =
     post;
   const postUrl = `/${slug?.current}/`;
@@ -24,6 +24,7 @@ export function Post({ post, className, bodyProps = {}, ...args }) {
           url={url}
           postUrl={postUrl}
           body={body}
+          fontSize={fontSize}
         />
         {Boolean(Array.isArray(tags) && tags.length) && <TagList tags={tags} />}
         {Boolean(Array.isArray(collaborators) && collaborators.length) && (
@@ -166,19 +167,19 @@ function PortfolioImage({
   );
 }
 
-function TitleAndDescription({ title, hideTitle, url, postUrl, body }) {
+function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = "medium" }) {
   if (title && !hideTitle && body) {
     return (
       <>
         <Title title={title} url={url} postUrl={postUrl} className="mb-em" />
-        <Description body={body} className="mb-em" />
+        <Description body={body} fontSize={fontSize} className="mb-em" />
       </>
     );
   } else if ((!title || hideTitle) && body) {
     return (
       <>
         <Permalink postUrl={postUrl} className="mb-em/2 last:mb-0" />
-        <Description body={body} className="mb-em last:mb-0" />
+        <Description body={body} fontSize={fontSize} className="mb-em last:mb-0" />
       </>
     );
   } else if (title && !hideTitle && !body) {
@@ -218,12 +219,17 @@ function Title({ title, url, postUrl, className }) {
   );
 }
 
-function Description({ body, className }) {
+function Description({ body, className, fontSize = "medium" }) {
+  const fontSizeClassNames = {
+    small: "text-2",
+    medium: "text-3",
+    large: "text-5",
+  };
   return (
     <div
       className={clsx(
         "markdown",
-        "text-5",
+        fontSizeClassNames[fontSize],
         "mt-em/4",
         "first:mt-0",
         "mb-em/2",

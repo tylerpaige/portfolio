@@ -13,9 +13,15 @@ export function Stack({
   return (
     <div>
       <PageTitle title={title} className="px-2" />
-      <div className={clsx('flex', 'flex-col', 'gap-2')}>
+      <div className={clsx("flex", "flex-col", "gap-2")}>
         {posts.map((post) => (
-          <Post post={post} key={post._id} className="px-1/2" bodyProps={{ className: "px-3/2"}} />
+          <Post
+            post={post}
+            key={post._id}
+            className="px-1/2"
+            bodyProps={{ className: "px-3/2" }}
+            fontSize="large"
+          />
         ))}
       </div>
       {totalPages > 1 && (
