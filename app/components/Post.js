@@ -132,10 +132,10 @@ function Video({
       className={clsx(className, "w-full", "h-full", sizeClassNames[size])}
       width="100%"
       height="100%"
-      frameborder="0"
-      webkitallowfullscreen
-      mozallowfullscreen
-      allowfullscreen
+      frameBorder="0"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+      allowFullScreen
       {...props}
     ></iframe>
   );
