@@ -8,10 +8,12 @@ export function usePagination({
   basePath,
   windowSize = 5,
 }) {
+  // This a function that takes a page number and returns a path.
   // Useful creating `/minus/1` meaning the second page of results
+  // NOTE: this is pretty specific to this portfolio site. You would probably want to adjust it if you're using this code on a different site.
   const pathFunc = ({ basePath, page }) => {
     if (page === 1) {
-      return basePath;
+      return "/";
     } else {
       return `${basePath}/${page - 1}`;
     }
@@ -139,12 +141,14 @@ export function Pagination({
       {...props}
     >
       <div className="inline-flex min-w-[7em] flex-col gap-0.5 -rotate-2">
-        <PaginationArrow
-          direction="previous"
-          page={previousPage}
-          path={previousPagePath}
-          className="text-left"
-        />
+        {previousPage && (
+          <PaginationArrow
+            direction="previous"
+            page={previousPage}
+            path={previousPagePath}
+            className="text-left"
+          />
+        )}
         <ul className="flex flex-col gap-0.5 items-center">
           {pagesInWindow.map(({ page, path }) => (
             <PaginationItem
@@ -155,12 +159,14 @@ export function Pagination({
             />
           ))}
         </ul>
-        <PaginationArrow
-          direction="next"
-          page={nextPage}
-          path={nextPagePath}
-          className="text-right"
-        />
+        {nextPagePath && (
+          <PaginationArrow
+            direction="next"
+            page={nextPage}
+            path={nextPagePath}
+            className="text-right"
+          />
+        )}
       </div>
     </nav>
   );
