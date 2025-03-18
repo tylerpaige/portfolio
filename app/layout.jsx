@@ -1,4 +1,5 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react"
 import clsx from 'clsx'
 import localFont from 'next/font/local';
 import './globals.css'
@@ -38,6 +39,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Analytics />
+      </head>
       <body className={clsx(
         'bg-black',
         'text-white',
