@@ -1,5 +1,6 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import clsx from 'clsx'
 import localFont from 'next/font/local';
 import './globals.css'
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <Analytics />
+        <SpeedInsights />
       </head>
       <body className={clsx(
         'bg-black',
