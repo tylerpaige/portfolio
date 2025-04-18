@@ -10,6 +10,10 @@ export async function POST(req) {
 
   try {
     revalidatePath('/')
+    revalidatePath('/[slug]')
+    revalidatePath('/minus/[page]')
+    revalidatePath('/tagged/[tag]')
+    revalidatePath('/tagged/[tag]/minus/[page]')
     return NextResponse.json({ revalidated: true });
   } catch (err) {
     return NextResponse.json({ error: 'Error revalidating' }, { status: 500 });
