@@ -8,6 +8,6 @@ export const getIdFromVimeoUrl = (url) => {
 // TODO: hide player cruft
 export const getEmbedFromVimeoUrl = (url) => {
   const id = getIdFromVimeoUrl(url);
-  return `https://player.vimeo.com/video/${id}`;
+  return `https://player.vimeo.com/video/${id}?autoplay=1&background=1`;
 };
 
