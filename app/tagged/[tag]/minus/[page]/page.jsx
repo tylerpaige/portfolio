@@ -21,7 +21,7 @@ export default async function PaginatedTagPage({ params }) {
 
   return (
     <div>
-      <Header />
+      <Header className="stripe-a-pink stripe-b-gold border-r-gold bg-pink text-dark-magenta" />
       <main>
         <Grid
           title={`Tagged: ${tag}`}

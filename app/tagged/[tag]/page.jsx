@@ -16,7 +16,7 @@ export default async function TagPage({ params }) {
 
   return (
     <div>
-      <Header />
+      <Header className="text-[#045404]" />
       <main>
         <Grid
           title={`Tagged: ${tag}`}

@@ -16,7 +16,7 @@ export default async function PaginatedPage({ params }) {
 
   return (
     <div>
-      <Header className="stripe-a-pink stripe-b-gold border-r-gold bg-pink text-black" />
+      <Header className="bg-green border-l-steel-blue border-r-black" />
       <main>
         <Grid title="Archive" {...response} basePath="/minus" />
       </main>
