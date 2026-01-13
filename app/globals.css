@@ -1,14 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.js';
 
-:root {
-  --gutter: 1rem;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-@media screen and (min-width: theme("screens.md")) {
+@layer utilities {
   :root {
-    --gutter: 2rem;
+    --gutter: 1rem;
+    --base-font-size: 1rem;
+  }
+
+  @media screen and (min-width: --theme(--breakpoint-md)) {
+    :root {
+      --gutter: 2rem;
+    }
   }
 }
 
@@ -23,6 +43,7 @@
   .markdown h4,
   .markdown h5,
   .markdown h6 {
+    @apply text-7;
     @apply font-bold;
     @apply mb-em/2 last:mb-0;
   }

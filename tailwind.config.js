@@ -1,15 +1,65 @@
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require("tailwindcss/plugin");
+export function typeScale({
+  coefficient = "var(--base-font-size)",
+  base = 1.25,
+  lineHeight = 1,
+  numberOfSmallSizes,
+  numberOfLargeSizes,
+  transformer,
+} = {}) {
+  const fontSizes = {};
+  transformer ||= ({ fontSizes, key, value }) => {
+    fontSizes[key] = [value, { lineHeight }];
+  };
+
+  Array.from({ length: numberOfSmallSizes }).forEach((_, i) => {
+    // const key = -1 * (numberOfSmallSizes - i);
+    const key = `neg-${(numberOfSmallSizes - i)}`;
+    const exponent = -1 * (numberOfSmallSizes - i);
+    const power = Math.pow(base, exponent).toFixed(3);
+    const value = `calc(${coefficient} * ${power})`;
+    transformer({
+      fontSizes,
+      key,
+      value,
+      coefficient,
+      power,
+      base,
+      exponent,
+    });
+  });
+  Array.from({ length: numberOfLargeSizes + 1 }).forEach((_, i) => {
+    const key = i;
+    const exponent = i;
+    const power = Math.pow(base, exponent).toFixed(3);
+    const value = `calc(${coefficient} * ${power})`;
+    transformer({
+      fontSizes,
+      key,
+      value,
+      coefficient,
+      power,
+      base,
+      exponent,
+    });
+  });
+  return fontSizes;
+}
 
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    fontSize: typeScale({
+      numberOfSmallSizes: 3,
+      numberOfLargeSizes: 15,
+      base: 1.125,
+      lineHeight: 1.25,
+    }),
     animation: {
       flip: "flip 5s linear infinite",
     },
@@ -96,28 +146,6 @@ module.exports = {
         '14': '127.730rem',
       }
     */
-    fontSize: (() => {
-      const numberOfSmallSizes = 3;
-      const numberOfLargeSizes = 15;
-      const base = 1.125;
-      const lineHeight = 1.25;
-      const fontSizes = {};
-      Array.from({ length: numberOfSmallSizes }).forEach((_, i) => {
-        const key = numberOfSmallSizes - (-1 * i - 1);
-        const fontSize = `${Math.pow(
-          base,
-          -1 * (numberOfSmallSizes - i)
-        ).toFixed(3)}rem`;
-        fontSizes[key] = [fontSize, lineHeight];
-      });
-      Array.from({ length: numberOfLargeSizes }).forEach((_, i) => {
-        const key = i;
-        const fontSize = `${Math.pow(base, i).toFixed(3)}rem`;
-        fontSizes[key] = [fontSize, lineHeight];
-      });
-      fontSizes["DEFAULT"] = fontSizes[0];
-      return fontSizes;
-    })(),
     height: ({ theme }) => ({
       auto: "auto",
       ...theme("spacing"),
