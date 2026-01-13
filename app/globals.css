@@ -23,7 +23,6 @@
   .markdown h4,
   .markdown h5,
   .markdown h6 {
-    @apply text-7;
     @apply font-bold;
     @apply mb-em/2 last:mb-0;
   }
