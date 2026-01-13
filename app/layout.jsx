@@ -45,8 +45,8 @@ export default function RootLayout({ children }) {
         junicode.variable
       )}>
         {children}
+        <GoogleAnalytics gaId="G-621RQ8Z30P" />
       </body>
-      <GoogleAnalytics gaId="G-621RQ8Z30P" />
     </html>
   )
 }

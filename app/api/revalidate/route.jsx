@@ -5,7 +5,7 @@ export async function POST(req) {
   // Verify the webhook secret header (set this in your Sanity webhook settings)
   const webhookSecret = req.headers.get("x-sanity-webhook-secret");
   if (webhookSecret !== process.env.SANITY_WEBHOOK_SECRET) {
-    return NextResponse.error("Invalid secret", { status: 401 });
+    return NextResponse.json({ error: "Invalid secret" }, { status: 401 });
   }
 
   try {

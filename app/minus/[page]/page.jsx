@@ -3,11 +3,12 @@ import { Grid, Header } from "../../components";
 import { fetchPosts } from "../../utilities";
 
 export default async function PaginatedPage({ params }) {
-  if (typeof params.page === "undefined") {
+  const resolvedParams = await params;
+  if (typeof resolvedParams.page === "undefined") {
     redirect("/");
   }
 
-  const page = Number(params.page) + 1;
+  const page = Number(resolvedParams.page) + 1;
   const response = await fetchPosts({ page, featured: false });
 
   if (response.error) {

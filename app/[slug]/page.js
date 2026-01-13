@@ -4,7 +4,7 @@ import { Header, Post } from "../components";
 import { fetchPost } from "../utilities";
 
 export default async function PostPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await fetchPost(slug);
 
   if (!post) {
