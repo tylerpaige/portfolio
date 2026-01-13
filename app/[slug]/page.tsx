@@ -1,9 +1,12 @@
-import clsx from "clsx";
 import { notFound } from 'next/navigation'
-import { Header, Post } from "../components";
-import { fetchPost } from "../utilities";
+import { Header, Post } from "../../components";
+import { fetchPost } from "../../lib";
 
-export default async function PostPage({ params }) {
+interface PostPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
   const post = await fetchPost(slug);
 

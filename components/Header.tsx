@@ -1,8 +1,16 @@
 import Link from "next/link";
 import clsx from "clsx";
-import { missingClass } from "../utilities";
+import { missingClass } from "../../lib";
 
-export function Header({ className, innerProps = {} }) {
+interface HeaderProps {
+  className?: string;
+  innerProps?: {
+    className?: string;
+    [key: string]: unknown;
+  };
+}
+
+export function Header({ className, innerProps = {} }: HeaderProps) {
   const { className: innerClassName, ...restInnerProps } = innerProps;
   return (
     <header

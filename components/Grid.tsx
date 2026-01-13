@@ -2,6 +2,12 @@ import clsx from "clsx";
 import { PageTitle } from "./PageTitle";
 import { Pagination } from "./Pagination";
 import { Post } from "./Post";
+import { Post as PostType, FetchPostsResponse } from "../types";
+
+interface GridProps extends Omit<FetchPostsResponse, 'error'> {
+  title: string;
+  basePath: string;
+}
 
 export function Grid({
   title,
@@ -9,7 +15,7 @@ export function Grid({
   currentPage = 1,
   totalPages = 1,
   basePath,
-}) {
+}: GridProps) {
   return (
     <div>
       <PageTitle title={title} className="px-2 md:px-1/2" />

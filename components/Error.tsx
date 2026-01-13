@@ -1,8 +1,16 @@
 import clsx from "clsx";
-import { missingClass } from "../utilities";
+import { ReactNode } from "react";
+import { missingClass } from "../../lib";
 import { PageTitle } from "./PageTitle";
 
-export function Error({ title, children, className, ...props }) {
+interface ErrorProps {
+  title?: string;
+  children?: ReactNode;
+  className?: string;
+  [key: string]: unknown;
+}
+
+export function Error({ title, children, className, ...props }: ErrorProps) {
   return (
     <div
       className={clsx(
@@ -18,10 +26,14 @@ export function Error({ title, children, className, ...props }) {
   );
 }
 
-export function NotFoundError(props) {
+interface NotFoundErrorProps {
+  [key: string]: unknown;
+}
+
+export function NotFoundError(props: NotFoundErrorProps) {
   return (
     <Error title="404" {...props}>
-      <p>There’s nothing written here.</p>
+      <p>There's nothing written here.</p>
       <p>You write instead: self@tylerpaige.com</p>
     </Error>
   );

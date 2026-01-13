@@ -1,8 +1,12 @@
 import { notFound, redirect } from 'next/navigation'
-import { Grid, Header } from "../../../../components";
-import { fetchPosts } from "../../../../utilities";
+import { Grid, Header } from "../../../../../components";
+import { fetchPosts } from "../../../../../lib";
 
-export default async function PaginatedTagPage({ params }) {
+interface PaginatedTagPageProps {
+  params: Promise<{ tag: string; page: string }>;
+}
+
+export default async function PaginatedTagPage({ params }: PaginatedTagPageProps) {
   const resolvedParams = await params;
   if (!resolvedParams.tag) {
     return notFound();

@@ -34,7 +34,7 @@ export default defineType({
       name: "url",
       title: "URL",
       type: "string",
-      hidden: ({ parent }) => parent?.clickBehavior !== "customUrl",
+      hidden: ({ parent }: { parent?: { clickBehavior?: string } }) => parent?.clickBehavior !== "customUrl",
     },
     {
       name: "size",

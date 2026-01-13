@@ -1,5 +1,6 @@
 // sanity.js
-import { client } from "../../sanity/lib/client";
+import { client } from "../sanity/lib/client";
+import { FetchPostsParams, FetchPostsResponse, Post } from "../app/types";
 
 const PER = 6;
 
@@ -49,8 +50,8 @@ const postProjectection = `{
 }`;
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
-export async function fetchPosts({ page, tag, featured } = {}) {
-  const filters = [];
+export async function fetchPosts({ page, tag, featured }: FetchPostsParams = {}): Promise<FetchPostsResponse> {
+  const filters: string[] = [];
   filters.push(`_type == "post"`);
 
   if (featured === true) {
@@ -64,7 +65,7 @@ export async function fetchPosts({ page, tag, featured } = {}) {
   }
   const filterStatement = `*[${filters.join(" && ")}]`;
 
-  const orders = [];
+  const orders: string[] = [];
   orders.push(`| order(publishedAt desc)`);
   const orderStatement = orders.join(" ");
 
@@ -81,7 +82,7 @@ export async function fetchPosts({ page, tag, featured } = {}) {
     postProjectection,
   ].join(" ");
 
-  const posts = await client.fetch(query);
+  const posts = await client.fetch<Post[]>(query);
 
   if (!Boolean(posts.length)) {
     return {
@@ -97,7 +98,7 @@ export async function fetchPosts({ page, tag, featured } = {}) {
   }
 
   const totalPages = await client
-    .fetch(`count(${filterStatement})`)
+    .fetch<number>(`count(${filterStatement})`)
     .then((count) => Math.max(Math.ceil(count / PER), 1));
 
   return {
@@ -107,8 +108,8 @@ export async function fetchPosts({ page, tag, featured } = {}) {
   };
 }
 
-export async function fetchPost(slug) {
+export async function fetchPost(slug: string): Promise<Post | null> {
   const query = `*[_type == "post" && slug.current == $slug][0]${postProjectection}`;
-  const post = await client.fetch(query, { slug });
+  const post = await client.fetch<Post | null>(query, { slug });
   return post;
 }

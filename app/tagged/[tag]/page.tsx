@@ -1,8 +1,12 @@
 import { notFound } from 'next/navigation'
-import { Grid, Header } from "../../components";
-import { fetchPosts } from "../../utilities";
+import { Grid, Header } from "../../../components";
+import { fetchPosts } from "../../../lib";
 
-export default async function TagPage({ params }) {
+interface TagPageProps {
+  params: Promise<{ tag: string }>;
+}
+
+export default async function TagPage({ params }: TagPageProps) {
   const resolvedParams = await params;
   if (!resolvedParams.tag) {
     return notFound();

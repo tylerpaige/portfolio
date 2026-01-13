@@ -1,8 +1,12 @@
 import { notFound, redirect } from "next/navigation";
-import { Grid, Header } from "../../components";
-import { fetchPosts } from "../../utilities";
+import { Grid, Header } from "../../../components";
+import { fetchPosts } from "../../../lib";
 
-export default async function PaginatedPage({ params }) {
+interface PaginatedPageProps {
+  params: Promise<{ page: string }>;
+}
+
+export default async function PaginatedPage({ params }: PaginatedPageProps) {
   const resolvedParams = await params;
   if (typeof resolvedParams.page === "undefined") {
     redirect("/");

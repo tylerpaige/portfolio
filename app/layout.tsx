@@ -1,6 +1,7 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import clsx from 'clsx'
 import localFont from 'next/font/local';
+import { ReactNode } from 'react';
 import './globals.css'
  
 // Font files can be colocated inside of `app`
@@ -35,7 +36,11 @@ export const metadata = {
   description: 'Tyler is a artist, web designer, and professor.',
 }
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={clsx(

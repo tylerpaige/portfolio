@@ -14,7 +14,7 @@
 //
 // Button instantiation:
 // <Button className="w-10" />
-export function missingClass(string, prefix) {
+export function missingClass(string: string | undefined, prefix: string | string[]): boolean {
   // If the string is empty, then it's missing the class because it's missing everything
   if (!string) {
     return true;
@@ -30,7 +30,7 @@ export function missingClass(string, prefix) {
   return false;
 }
 
-export function missingDisplayClass(string) {
+export function missingDisplayClass(string: string | undefined): boolean {
   return missingClass(string, [
     "inline",
     "inline-block",
@@ -42,7 +42,7 @@ export function missingDisplayClass(string) {
   ]);
 }
 
-export function missingPositionClass(string) {
+export function missingPositionClass(string: string | undefined): boolean {
   return missingClass(string, [
     "static",
     "fixed",
@@ -52,6 +52,6 @@ export function missingPositionClass(string) {
   ]);
 }
 
-export function missingSvgColorClass(string) {
+export function missingSvgColorClass(string: string | undefined): boolean {
   return missingClass(string, ["fill-", "stroke-"]);
 }

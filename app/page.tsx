@@ -1,5 +1,5 @@
-import { Grid, Header, Stack } from "./components";
-import { fetchPosts } from "./utilities";
+import { Grid, Header, Stack } from "../components";
+import { fetchPosts } from "../lib";
 
 export default async function Home() {
   const { posts: featuredPosts } = await fetchPosts({ featured: true });

@@ -1,11 +1,23 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { imageUrlFor } from "../utilities/image";
+import { imageUrlFor } from "../../lib/image";
 import { PortableText } from "@portabletext/react";
-import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../utilities";
+import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../../lib";
+import { Post as PostType, MediaItem, PortfolioImage, Video, Embed, SanityImage } from "../types";
 
-export function Post({ post, className, fontSize = "medium", bodyProps = {}, ...args }) {
+interface PostProps {
+  post: PostType;
+  className?: string;
+  fontSize?: "small" | "medium" | "large";
+  bodyProps?: {
+    className?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
+}
+
+export function Post({ post, className, fontSize = "medium", bodyProps = {}, ...args }: PostProps) {
   const { title, hideTitle, url, slug, media, body, tags, collaborators } =
     post;
   const postUrl = `/${slug?.current}/`;
@@ -35,35 +47,42 @@ export function Post({ post, className, fontSize = "medium", bodyProps = {}, ...
   );
 }
 
-function Media({ media, url, postUrl }) {
+interface MediaProps {
+  media: MediaItem[];
+  url?: string;
+  postUrl: string;
+}
+
+function Media({ media, url, postUrl }: MediaProps) {
   return (
     <div className={clsx("flex", "flex-wrap", "gap-1/4")}>
-      {media.map(({ _type, _key, size, ...media }) => {
+      {media.map(({ _type, _key, size, ...mediaItem }) => {
         switch (_type) {
           case "portfolioImage":
+            const portfolioImage = mediaItem as PortfolioImage;
             const imageElement = (
-              <PortfolioImage
-                src={media.image?.asset?.url}
-                width={media.image?.asset?.metadata?.dimensions?.width}
-                height={media.image?.asset?.metadata?.dimensions?.height}
-                alt={media.alt}
+              <PortfolioImageComponent
+                src={portfolioImage.image?.asset?.url}
+                width={portfolioImage.image?.asset?.metadata?.dimensions?.width}
+                height={portfolioImage.image?.asset?.metadata?.dimensions?.height}
+                alt={portfolioImage.alt}
                 size={size}
                 key={_key}
               />
             );
-            if (media.clickBehavior === "lightbox") {
+            if (portfolioImage.clickBehavior === "lightbox") {
               return (
-                <Link href={media.image?.asset?.url} key={_key}>
+                <Link href={portfolioImage.image?.asset?.url || '#'} key={_key}>
                   {imageElement}
                 </Link>
               );
-            } else if (media.clickBehavior === "customUrl" && media.url) {
+            } else if (portfolioImage.clickBehavior === "customUrl" && portfolioImage.url) {
               return (
-                <Link href={media.url} key={_key}>
+                <Link href={portfolioImage.url} key={_key}>
                   {imageElement}
                 </Link>
               );
-            } else if (media.clickBehavior === "postUrl") {
+            } else if (portfolioImage.clickBehavior === "postUrl") {
               return (
                 <Link href={url || postUrl} key={_key}>
                   {imageElement}
@@ -73,9 +92,9 @@ function Media({ media, url, postUrl }) {
               return imageElement;
             }
           case "video":
-            return <Video {...media} key={_key} size={size} />;
+            return <VideoComponent {...(mediaItem as Video)} key={_key} size={size} />;
           case "embed":
-            return <Embed {...media} key={_key} size={size} />;
+            return <EmbedComponent {...(mediaItem as Embed)} key={_key} size={size} />;
           default:
             return null;
         }
@@ -92,7 +111,15 @@ const sizeClassNames = {
   xl: "max-w-xl",
 };
 
-function Embed({ code, aspectRatio, size = "default", className, ...props }) {
+interface EmbedProps {
+  code: string;
+  aspectRatio?: string;
+  size?: keyof typeof sizeClassNames;
+  className?: string;
+  [key: string]: unknown;
+}
+
+function EmbedComponent({ code, aspectRatio, size = "default", className, ...props }: EmbedProps) {
   if (!code) {
     return <></>;
   }
@@ -113,13 +140,21 @@ function Embed({ code, aspectRatio, size = "default", className, ...props }) {
   );
 }
 
-function Video({
+interface VideoProps {
+  url: string;
+  aspectRatio?: string;
+  size?: keyof typeof sizeClassNames;
+  className?: string;
+  [key: string]: unknown;
+}
+
+function VideoComponent({
   url,
   aspectRatio = "16/9",
   size = "default",
   className,
   ...props
-}) {
+}: VideoProps) {
   const embedUrl = getEmbedFromVimeoUrl(url);
 
   if (!embedUrl) {
@@ -134,22 +169,29 @@ function Video({
       width="100%"
       height="100%"
       frameBorder="0"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
       allowFullScreen
       {...props}
     ></iframe>
   );
 }
 
-function PortfolioImage({
+interface PortfolioImageProps {
+  src?: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+  size?: keyof typeof sizeClassNames;
+  [key: string]: unknown;
+}
+
+function PortfolioImageComponent({
   src,
   width,
   height,
   alt,
   size = "default",
   ...props
-}) {
+}: PortfolioImageProps) {
   if (!src) {
     return <></>;
   }
@@ -158,16 +200,25 @@ function PortfolioImage({
     <div {...props}>
       <Image
         src={src}
-        width={width}
-        height={height}
+        width={width || 800}
+        height={height || 600}
         className={clsx("w-full", sizeClassNames[size])}
-        alt={alt}
+        alt={alt || ""}
       />
     </div>
   );
 }
 
-function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = "medium" }) {
+interface TitleAndDescriptionProps {
+  title?: string;
+  hideTitle?: boolean;
+  url?: string;
+  postUrl: string;
+  body: PostType['body'];
+  fontSize?: "small" | "medium" | "large";
+}
+
+function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = "medium" }: TitleAndDescriptionProps) {
   if (title && !hideTitle && body) {
     return (
       <>
@@ -196,7 +247,14 @@ function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = 
   }
 }
 
-function Title({ title, url, postUrl, className }) {
+interface TitleProps {
+  title: string;
+  url?: string;
+  postUrl: string;
+  className?: string;
+}
+
+function Title({ title, url, postUrl, className }: TitleProps) {
   return (
     <div className={clsx(className)}>
       {url ? (
@@ -219,7 +277,13 @@ function Title({ title, url, postUrl, className }) {
   );
 }
 
-function Description({ body, className, fontSize = "medium" }) {
+interface DescriptionProps {
+  body: PostType['body'];
+  className?: string;
+  fontSize?: "small" | "medium" | "large";
+}
+
+function Description({ body, className, fontSize = "medium" }: DescriptionProps) {
   const fontSizeClassNames = {
     small: "text-2",
     medium: "text-3",
@@ -242,12 +306,12 @@ function Description({ body, className, fontSize = "medium" }) {
         value={body}
         components={{
           types: {
-            portfolioImage: (block) => {
+            portfolioImage: (block: { value: { image: { asset: { url: string; metadata: { dimensions: { width: number; height: number } } } } } }) => {
               const url = block.value.image.asset.url;
               const { width, height } =
                 block.value.image.asset.metadata.dimensions;
               return (
-                <PortfolioImage
+                <PortfolioImageComponent
                   src={url}
                   width={width}
                   height={height}
@@ -256,11 +320,11 @@ function Description({ body, className, fontSize = "medium" }) {
                 />
               );
             },
-            video: (block) => {
+            video: (block: { value: { url: string; aspectRatio?: string } }) => {
               const { url } = block.value;
               const aspectRatio = block.value.aspectRatio || "16/9";
               return (
-                <Video
+                <VideoComponent
                   url={url}
                   aspectRatio={aspectRatio}
                   size="sm"
@@ -275,7 +339,12 @@ function Description({ body, className, fontSize = "medium" }) {
   );
 }
 
-function Permalink({ postUrl, className }) {
+interface PermalinkProps {
+  postUrl: string;
+  className?: string;
+}
+
+function Permalink({ postUrl, className }: PermalinkProps) {
   return (
     <Link href={postUrl} className={clsx(className)}>
       ¶
@@ -283,7 +352,11 @@ function Permalink({ postUrl, className }) {
   );
 }
 
-function TagList({ tags }) {
+interface TagListProps {
+  tags: string[];
+}
+
+function TagList({ tags }: TagListProps) {
   return (
     <div className="flex gap-em/2">
       <p className="">Tagged as:</p>
@@ -303,7 +376,13 @@ function TagList({ tags }) {
   );
 }
 
-function Collaborators({ collaborators }) {
+interface CollaboratorsProps {
+  collaborators: PostType['collaborators'];
+}
+
+function Collaborators({ collaborators }: CollaboratorsProps) {
+  if (!collaborators) return null;
+  
   return (
     <div className="flex gap-em/2">
       <p className="">With</p>

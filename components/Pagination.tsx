@@ -2,16 +2,40 @@ import React from "react";
 import clsx from "clsx";
 import Link from "next/link";
 
+interface UsePaginationParams {
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+  windowSize?: number;
+}
+
+interface PaginationResult {
+  currentPage: number;
+  firstPage: number;
+  firstPagePath: string;
+  lastPage: number;
+  lastPagePath: string;
+  nextPage?: number;
+  nextPagePath?: string;
+  pagesInWindow: Array<{ page: number; path: string }>;
+  paginationWindow: number[];
+  pathFunc: (params: { basePath: string; page: number }) => string;
+  previousPage?: number;
+  previousPagePath?: string;
+  truncatedAtFront: boolean;
+  truncatedAtEnd: boolean;
+}
+
 export function usePagination({
   currentPage,
   totalPages,
   basePath,
   windowSize = 5,
-}) {
+}: UsePaginationParams): PaginationResult {
   // This a function that takes a page number and returns a path.
   // Useful creating `/minus/1` meaning the second page of results
   // NOTE: this is pretty specific to this portfolio site. You would probably want to adjust it if you're using this code on a different site.
-  const pathFunc = ({ basePath, page }) => {
+  const pathFunc = ({ basePath, page }: { basePath: string; page: number }) => {
     if (page === 1) {
       return "/";
     } else {
@@ -19,7 +43,7 @@ export function usePagination({
     }
   };
 
-  let paginationWindow = [];
+  let paginationWindow: number[] = [];
   if (totalPages <= windowSize) {
     paginationWindow = Array.from({ length: totalPages }, (_, i) => i + 1);
   } else {
@@ -45,17 +69,17 @@ export function usePagination({
     );
   }
 
-  const truncatedAtFront = Math.min.call(null, ...paginationWindow) > 1;
+  const truncatedAtFront = Math.min(...paginationWindow) > 1;
   const truncatedAtEnd =
-    Math.max.call(null, ...paginationWindow) < totalPages - 1;
+    Math.max(...paginationWindow) < totalPages - 1;
   const previousPage = currentPage > 1 ? currentPage - 1 : undefined;
-  let previousPagePath;
+  let previousPagePath: string | undefined;
   const nextPage = currentPage < totalPages ? currentPage + 1 : undefined;
-  let nextPagePath;
+  let nextPagePath: string | undefined;
   const firstPage = 1;
-  let firstPagePath;
+  let firstPagePath: string;
   const lastPage = totalPages;
-  let lastPagePath;
+  let lastPagePath: string;
   const pagesInWindow = paginationWindow.map((page) => ({
     page,
     path: pathFunc({ basePath, page }),
@@ -67,7 +91,7 @@ export function usePagination({
   if (currentPage < totalPages) {
     nextPagePath = pathFunc({ basePath, page: currentPage + 1 });
   }
-  firstPagePath = firstPagePath = pathFunc({ basePath, page: 1 });
+  firstPagePath = pathFunc({ basePath, page: 1 });
   lastPagePath = pathFunc({ basePath, page: totalPages });
 
   return {
@@ -88,7 +112,14 @@ export function usePagination({
   };
 }
 
-export function PaginationArrow({ direction, path, className }) {
+interface PaginationArrowProps {
+  direction: "previous" | "next";
+  path?: string;
+  className?: string;
+  page?: number;
+}
+
+export function PaginationArrow({ direction, path, className }: PaginationArrowProps) {
   const label = direction == "previous" ? "↜ Newer" : "Older ↝";
 
   return path ? (
@@ -100,9 +131,15 @@ export function PaginationArrow({ direction, path, className }) {
   );
 }
 
-export function PaginationItem({ page, path, currentPage }) {
+interface PaginationItemProps {
+  page: number;
+  path?: string;
+  currentPage: number;
+}
+
+export function PaginationItem({ page, path, currentPage }: PaginationItemProps) {
   const isActive = page === currentPage;
-  let item;
+  let item: React.ReactNode;
   if (isActive) {
     item = <span className={clsx("text-lime")}>{page}</span>;
   } else if (path) {
@@ -118,6 +155,16 @@ export function PaginationItem({ page, path, currentPage }) {
   return <li>{item}</li>;
 }
 
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+  windowSize?: number;
+  alwaysShowFirstAndLastPages?: boolean;
+  className?: string;
+  [key: string]: unknown;
+}
+
 export function Pagination({
   currentPage,
   totalPages,
@@ -126,7 +173,7 @@ export function Pagination({
   alwaysShowFirstAndLastPages = true,
   className,
   ...props
-}) {
+}: PaginationProps) {
   const {
     pagesInWindow,
     previousPage,

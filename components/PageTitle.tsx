@@ -1,6 +1,12 @@
 import clsx from "clsx";
 
-export function PageTitle({ title, className, ...props }) {
+interface PageTitleProps {
+  title: string;
+  className?: string;
+  [key: string]: unknown;
+}
+
+export function PageTitle({ title, className, ...props }: PageTitleProps) {
   return (
     <h2
       className={clsx(

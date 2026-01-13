@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache'; 
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   // Verify the webhook secret header (set this in your Sanity webhook settings)
   const webhookSecret = req.headers.get("x-sanity-webhook-secret");
   if (webhookSecret !== process.env.SANITY_WEBHOOK_SECRET) {

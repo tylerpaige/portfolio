@@ -2,7 +2,7 @@
 
 import { Header, NotFoundError } from "./components";
 
-export default function Error({ error, reset }) {
+export default function NotFound() {
   return (
     <div>
       <Header

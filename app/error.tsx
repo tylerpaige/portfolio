@@ -1,8 +1,13 @@
 "use client";
 
-import { Header, NotFoundError } from "./components";
+import { Header, NotFoundError } from "../components";
 
-export default function Error({ error, reset }) {
+interface ErrorProps {
+  error: Error & { digest?: string };
+  reset: () => void;
+}
+
+export default function Error({ error, reset }: ErrorProps) {
   return (
     <div>
       <Header

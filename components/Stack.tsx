@@ -2,6 +2,15 @@ import clsx from "clsx";
 import { PageTitle } from "./PageTitle";
 import { Pagination } from "./Pagination";
 import { Post } from "./Post";
+import { Post as PostType } from "../types";
+
+interface StackProps {
+  title: string;
+  posts?: PostType[];
+  currentPage?: number;
+  totalPages?: number;
+  basePath?: string;
+}
 
 export function Stack({
   title,
@@ -9,7 +18,7 @@ export function Stack({
   currentPage = 1,
   totalPages = 1,
   basePath,
-}) {
+}: StackProps) {
   return (
     <div>
       <PageTitle title={title} className="px-2" />
@@ -24,7 +33,7 @@ export function Stack({
           />
         ))}
       </div>
-      {totalPages > 1 && (
+      {totalPages > 1 && basePath && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
