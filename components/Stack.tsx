@@ -2,11 +2,11 @@ import clsx from "clsx";
 import { PageTitle } from "./PageTitle";
 import { Pagination } from "./Pagination";
 import { Post } from "./Post";
-import { Post as PostType } from "../types";
+import { Post as TPost } from "../lib";
 
 interface StackProps {
   title: string;
-  posts?: PostType[];
+  posts?: TPost[];
   currentPage?: number;
   totalPages?: number;
   basePath?: string;

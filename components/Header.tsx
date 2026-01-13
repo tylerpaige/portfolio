@@ -1,13 +1,9 @@
 import Link from "next/link";
 import clsx from "clsx";
-import { missingClass } from "../../lib";
+import { missingClass } from "../lib";
 
-interface HeaderProps {
-  className?: string;
-  innerProps?: {
-    className?: string;
-    [key: string]: unknown;
-  };
+interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  innerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export function Header({ className, innerProps = {} }: HeaderProps) {

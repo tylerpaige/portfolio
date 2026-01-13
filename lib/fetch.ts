@@ -1,6 +1,6 @@
 // sanity.js
 import { client } from "../sanity/lib/client";
-import { FetchPostsParams, FetchPostsResponse, Post } from "../app/types";
+import { FetchPostsParams, FetchPostsResponse, Post } from "./types";
 
 const PER = 6;
 

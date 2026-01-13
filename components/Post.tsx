@@ -1,23 +1,34 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { imageUrlFor } from "../../lib/image";
 import { PortableText } from "@portabletext/react";
-import { getEmbedFromVimeoUrl, getIdFromVimeoUrl } from "../../lib";
-import { Post as PostType, MediaItem, PortfolioImage, Video, Embed, SanityImage } from "../types";
+import {
+  imageUrlFor,
+  getEmbedFromVimeoUrl,
+  getIdFromVimeoUrl,
+  Post as TPost,
+  MediaItem,
+  PortfolioImage,
+  Video,
+  Embed,
+  SanityImage,
+} from "../lib";
 
-interface PostProps {
-  post: PostType;
+interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
+  post: TPost;
   className?: string;
   fontSize?: "small" | "medium" | "large";
-  bodyProps?: {
-    className?: string;
-    [key: string]: unknown;
-  };
+  bodyProps?: { className?: string; [key: string]: unknown };
   [key: string]: unknown;
 }
 
-export function Post({ post, className, fontSize = "medium", bodyProps = {}, ...args }: PostProps) {
+export function Post({
+  post,
+  className,
+  fontSize = "medium",
+  bodyProps = {},
+  ...args
+}: PostProps) {
   const { title, hideTitle, url, slug, media, body, tags, collaborators } =
     post;
   const postUrl = `/${slug?.current}/`;
@@ -64,7 +75,9 @@ function Media({ media, url, postUrl }: MediaProps) {
               <PortfolioImageComponent
                 src={portfolioImage.image?.asset?.url}
                 width={portfolioImage.image?.asset?.metadata?.dimensions?.width}
-                height={portfolioImage.image?.asset?.metadata?.dimensions?.height}
+                height={
+                  portfolioImage.image?.asset?.metadata?.dimensions?.height
+                }
                 alt={portfolioImage.alt}
                 size={size}
                 key={_key}
@@ -72,11 +85,14 @@ function Media({ media, url, postUrl }: MediaProps) {
             );
             if (portfolioImage.clickBehavior === "lightbox") {
               return (
-                <Link href={portfolioImage.image?.asset?.url || '#'} key={_key}>
+                <Link href={portfolioImage.image?.asset?.url || "#"} key={_key}>
                   {imageElement}
                 </Link>
               );
-            } else if (portfolioImage.clickBehavior === "customUrl" && portfolioImage.url) {
+            } else if (
+              portfolioImage.clickBehavior === "customUrl" &&
+              portfolioImage.url
+            ) {
               return (
                 <Link href={portfolioImage.url} key={_key}>
                   {imageElement}
@@ -92,9 +108,21 @@ function Media({ media, url, postUrl }: MediaProps) {
               return imageElement;
             }
           case "video":
-            return <VideoComponent {...(mediaItem as Video)} key={_key} size={size} />;
+            return (
+              <VideoComponent
+                {...(mediaItem as Video)}
+                key={_key}
+                size={size}
+              />
+            );
           case "embed":
-            return <EmbedComponent {...(mediaItem as Embed)} key={_key} size={size} />;
+            return (
+              <EmbedComponent
+                {...(mediaItem as Embed)}
+                key={_key}
+                size={size}
+              />
+            );
           default:
             return null;
         }
@@ -119,7 +147,13 @@ interface EmbedProps {
   [key: string]: unknown;
 }
 
-function EmbedComponent({ code, aspectRatio, size = "default", className, ...props }: EmbedProps) {
+function EmbedComponent({
+  code,
+  aspectRatio,
+  size = "default",
+  className,
+  ...props
+}: EmbedProps) {
   if (!code) {
     return <></>;
   }
@@ -214,11 +248,18 @@ interface TitleAndDescriptionProps {
   hideTitle?: boolean;
   url?: string;
   postUrl: string;
-  body: PostType['body'];
+  body: TPost["body"];
   fontSize?: "small" | "medium" | "large";
 }
 
-function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = "medium" }: TitleAndDescriptionProps) {
+function TitleAndDescription({
+  title,
+  hideTitle,
+  url,
+  postUrl,
+  body,
+  fontSize = "medium",
+}: TitleAndDescriptionProps) {
   if (title && !hideTitle && body) {
     return (
       <>
@@ -230,7 +271,11 @@ function TitleAndDescription({ title, hideTitle, url, postUrl, body, fontSize = 
     return (
       <>
         <Permalink postUrl={postUrl} className="mb-em/2 last:mb-0" />
-        <Description body={body} fontSize={fontSize} className="mb-em last:mb-0" />
+        <Description
+          body={body}
+          fontSize={fontSize}
+          className="mb-em last:mb-0"
+        />
       </>
     );
   } else if (title && !hideTitle && !body) {
@@ -278,12 +323,16 @@ function Title({ title, url, postUrl, className }: TitleProps) {
 }
 
 interface DescriptionProps {
-  body: PostType['body'];
+  body: TPost["body"];
   className?: string;
   fontSize?: "small" | "medium" | "large";
 }
 
-function Description({ body, className, fontSize = "medium" }: DescriptionProps) {
+function Description({
+  body,
+  className,
+  fontSize = "medium",
+}: DescriptionProps) {
   const fontSizeClassNames = {
     small: "text-2",
     medium: "text-3",
@@ -306,7 +355,16 @@ function Description({ body, className, fontSize = "medium" }: DescriptionProps)
         value={body}
         components={{
           types: {
-            portfolioImage: (block: { value: { image: { asset: { url: string; metadata: { dimensions: { width: number; height: number } } } } } }) => {
+            portfolioImage: (block: {
+              value: {
+                image: {
+                  asset: {
+                    url: string;
+                    metadata: { dimensions: { width: number; height: number } };
+                  };
+                };
+              };
+            }) => {
               const url = block.value.image.asset.url;
               const { width, height } =
                 block.value.image.asset.metadata.dimensions;
@@ -320,7 +378,9 @@ function Description({ body, className, fontSize = "medium" }: DescriptionProps)
                 />
               );
             },
-            video: (block: { value: { url: string; aspectRatio?: string } }) => {
+            video: (block: {
+              value: { url: string; aspectRatio?: string };
+            }) => {
               const { url } = block.value;
               const aspectRatio = block.value.aspectRatio || "16/9";
               return (
@@ -377,12 +437,12 @@ function TagList({ tags }: TagListProps) {
 }
 
 interface CollaboratorsProps {
-  collaborators: PostType['collaborators'];
+  collaborators: TPost["collaborators"];
 }
 
 function Collaborators({ collaborators }: CollaboratorsProps) {
   if (!collaborators) return null;
-  
+
   return (
     <div className="flex gap-em/2">
       <p className="">With</p>

@@ -1,12 +1,10 @@
 import clsx from "clsx";
 
-interface PageTitleProps {
+interface PageTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   title: string;
-  className?: string;
-  [key: string]: unknown;
 }
 
-export function PageTitle({ title, className, ...props }: PageTitleProps) {
+export function PageTitle({ title, className, ...props }: PageTitleProps & React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
       className={clsx(

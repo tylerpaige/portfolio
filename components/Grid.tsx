@@ -2,11 +2,14 @@ import clsx from "clsx";
 import { PageTitle } from "./PageTitle";
 import { Pagination } from "./Pagination";
 import { Post } from "./Post";
-import { Post as PostType, FetchPostsResponse } from "../types";
+import { Post as TPost } from "../lib";
 
-interface GridProps extends Omit<FetchPostsResponse, 'error'> {
+interface GridProps {
   title: string;
   basePath: string;
+  posts: TPost[];
+  currentPage?: number;
+  totalPages?: number;
 }
 
 export function Grid({

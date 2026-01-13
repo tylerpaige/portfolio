@@ -1,6 +1,6 @@
 "use client";
 
-import { Header, NotFoundError } from "./components";
+import { Header, NotFoundError } from "../components";
 
 export default function NotFound() {
   return (

@@ -155,14 +155,12 @@ export function PaginationItem({ page, path, currentPage }: PaginationItemProps)
   return <li>{item}</li>;
 }
 
-interface PaginationProps {
+interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   currentPage: number;
   totalPages: number;
   basePath: string;
   windowSize?: number;
   alwaysShowFirstAndLastPages?: boolean;
-  className?: string;
-  [key: string]: unknown;
 }
 
 export function Pagination({

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ReactNode } from "react";
-import { missingClass } from "../../lib";
+import { missingClass } from "../lib";
 import { PageTitle } from "./PageTitle";
 
 interface ErrorProps {
